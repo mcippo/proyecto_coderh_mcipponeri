@@ -49,7 +49,7 @@ A través del uso del herramental ofrecido por SQL en las bases de datos mencion
 
 En esta primera entrega, se generaran las siguientes tablas:
 
- ** GENERO:** 
+ **GENERO:** 
 
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
