@@ -3,8 +3,8 @@
 ## Índice
 
 - [Introducción](#introducción)
-- [Objetivos](#metodología)
-- [Metodología](#resultados)
+- [Objetivos](#objetivos)
+- [Metodología](#metodología)
 
 ## Introducción
 
@@ -26,7 +26,37 @@ Establecido dicho norte, se buscará realizar un estudio que de cuenta tanto del
 
 Si bien este trabajo parte de una situación hipotética, los principales insumos prevendrán de bases de datos de ECOBICI en el sitio de [datos abiertos del GCBA](https://data.buenosaires.gob.ar/).
 
+El grueso de los campos y registros procesados provendrán de las bases del dataset de datos abiertos GCBA, sin embargo, se incluirán campos ficticios, con el fin de poder profundizar el uso de SQL. Cuando esto suceda, será debidamente aclarada.
+
 ## Objetivos
+
+A través del uso del herramental ofrecido por SQL en las bases de datos mencionadas, se buscará:
+
+ * Describir el perfil de los usuarios de ECOBICI (sexo, edad, con la posibilidad de incluir el campo _residencia_).
+ 
+ * Calcular el volumen de usuarios / recorridos realizados y su evolución en el tiempo
+ 
+ * Caracterizar los recorridos realizados (barrio y estación de origen, momento en el que se realizó el viaje, duración temporal, distancia recorrida).
+ 
+ * Evaluar el desempeño de los modelos de ECOBICI ofrecidas (el campo de calificación del viaje será ficticio)
+
+ * Relacionar perfiles de usuario con volumen de uso de ECOBICI, con el fin de desarrollar estrategías de penetración del servicio.
+ 
+ * Estimar el volumen de ingresos generados por la ECOBICI en caso de haber sido un servicio tarifado en 2024.
+
+
+## Tablas a presentar en la primera entrega:
+
+En esta primera entrega, se generaran las siguientes tablas:
+
+ ** GENERO:** 
+
+
+| Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
+|:--------------|:-----------:|:-------------:|:--------------:|
+| id  del usuario | id_genero | INT PRIMARY KEY NOT NULL| PK|
+| genero  | genero_usuario | VARCHAR (10) | -      |
+
 
 
 
