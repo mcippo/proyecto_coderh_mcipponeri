@@ -1,5 +1,13 @@
+# SISTEMA DE ECOBICI EN CABA: Funcionamiento y Mejoras Potenciales
 
-# SISTEMA DE ECOBICI EN BUENOS AIRES: Funcionamiento y Mejoras Potenciales
+**CURSO:** _SQL FLEX_
+
+**COMISIÓN:** _81830_
+
+**DOCENTE:** _Alejandro Di Stefano_
+
+**ALUMNO:** _Mariano Cipponeri_
+
 
 ## Índice
 
@@ -171,6 +179,14 @@ A través de la utilización de las bases mencionadas, a priori (ya que a futuro
  * Ingresos que se podrían haber generado por la utilización del servicio por barrio
  * Ingresos que se podrían haber generado por la utilización del servicio por estación
  * Usuarios que hubiesen gastado más en el servicio (se podrá selecciónar a los quintiles más altos)
+ * Kilometros recorridos por estación
+ * Kilometros por sexo
+ * Kilometros por edad
+ * Kilometros por estación
+ * Minutos de recorrido por estación de origen
+ * Minutos de recorrido por sexo
+ * Minutos de recorrido por edad
+ * Minutos de recorrido por estación de origen
  
  A futuro, se incorporarán consultas que implicarán el cruce de una mayor cantidad de variables, como por ejemplo cantidad de recorridos por sexo, según estación.
  
