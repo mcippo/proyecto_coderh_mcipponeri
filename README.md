@@ -14,4 +14,4 @@ En el repositorio se encontrará la siguiente información:
 
 - [Bases de datos -sin datos aún- ](bases/)
 
-- [Scripts para procesar datos en R, no utilizar ](procesamientos_r/)
+- [Scripts para procesar datos en R, -no utilizar- ](procesamientos_r/)
