@@ -1,14 +1,5 @@
 
-# CONTENIDO DEL REPOSITORIO:
-
-En el repositorio se encontrará la siguiente información:
-
-- [Primeros querys con la generación de las tablas](queris/)
-
-
-
-
-# ECOBICIS EN CABA: PRINCIPALES CARACTERÍSTICAS Y POTENCIALES MEJORAS
+# SISTEMA DE ECOBICI EN BUENOS AIRES: Funcionamiento y Mejoras Potenciales
 
 ## Índice
 
