@@ -1,6 +1,6 @@
 # ORGANIZACIÓN DEL REPOSITORIO:
 
-🚴‍♂ SISTEMA DE ECOBICI EN CABA: Funcionamiento y Mejoras Potenciales 🚴‍♂️
+🚴‍♂ **SISTEMA DE ECOBICI EN CABA: Funcionamiento y Mejoras Potenciales** 🚴‍♂️
 
 En el repositorio se encontrará la siguiente información:
 

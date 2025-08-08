@@ -373,8 +373,8 @@ Potenciales</h1>
 <p>El servicio de <em>ECOBICIS</em> es un sistema de bicicletas públicas
 ofrecidas por el Gobierno de la Ciudad de Buenos Aires
 <strong>(GCBA)</strong> que funciona desde el año 2010.</p>
-<p>Desde que el momento en que se comenzó a ofrecer el servicio, el
-mismo fue presentando mutaciones en diferentes dimensiones:</p>
+<p>Desde el momento en que se comenzó a funcionar el sistema, el mismo
+fue presentando mutaciones en diferentes aspectos:</p>
 <ul>
 <li><p>Se pasó de un sistema de manual y presencial a uno completamente
 automatizado (en la actualidad el retiro de las bicletas requieren la
@@ -382,32 +382,31 @@ utilización de la app de Ecobici).</p></li>
 <li><p>Se fue mejorando el stock de bicicletas (hoy en día todas poseen
 GPS)</p></li>
 <li><p>En 2018 se consecionó el servicio, siendo la empresa brasilera
-<strong>TEAMBICI</strong> la que obtuvo la concesión y la que la ostenta
-hasta el día de la fecha.</p></li>
-<li><p>Finalmente, el cambio más relevante se produjo en 2020, cuando se
-aranceló parcialmente el servicio, teniendo que pagar un importe por la
-utilización del servicio los no residentes en el país.</p></li>
+<strong>TEAMBICI</strong> la que ganó la licitación (y la ostenta hasta
+la actualidad).</p></li>
+<li><p>Finalmente, uno de los cambios más relevantes se produjo en 2020,
+cuando se aranceló parcialmente el servicio, teniendo que pagar los no
+residentes un importe por la utilización de las bicicletas.</p></li>
 </ul>
-<p>Si bien el servicio de ECOBICI viene demostrando un exitoso desempeño
-(si se toma como parámetros la evolución de unidades y estaciones
-disponibles, los usuarios y viajes realizados), tanto desde el GCBA como
-desde TEAMBICI se busca realizar modificaciones en el servicio, en pos
-de mejorar la experiencia para los usuarios a la vez que se mejoran los
-márgenes de ganancia del Gobierno y la empresa a cargo de la
-conseción.</p>
+<p>Si bien el servicio de <em>ECOBICI</em> viene demostrando un exitoso
+desempeño (si se toma como parámetro la evolución de unidades y
+estaciones disponibles, los usuarios y viajes realizados), tanto desde
+el GCBA como desde TEAMBICI se busca realizar modificaciones en el
+servicio, en pos de mejorar la experiencia para los usuarios,
+incrementar la penetración del servicio y mejorar los márgenes de
+ganancia del Gobierno y la empresa a cargo de la conseción.</p>
 <p>Establecido dicho norte, se buscará realizar un estudio que de cuenta
-tanto del volumen de la utilización de ECOBICI como del perfil de los
+tanto del volumen de la utilización de ECOBICI, como del perfil de los
 usuarios/viajes realizados. Esto permitirá llevar a cabo acciones
-orientadas a <strong>aumentar la utilización del servicio y establecer
-estrategias para su potencial arancelamiento en el futuro.</strong></p>
-<p>Si bien este trabajo parte de una situación hipotética, los
-principales insumos prevendrán de bases de datos de ECOBICI en el sitio
-de <a href="https://data.buenosaires.gob.ar/">datos abiertos del
-GCBA</a>.</p>
+orientadas a satisfacer los objetivos planteados en el párrafo
+anterior.</p>
+<p>Si bien este trabajo <strong>parte de una situación
+hipotética</strong>, los principales insumos prevendrán de bases de
+datos de ECOBICI en el sitio de <a href="https://data.buenosaires.gob.ar/">datos abiertos del GCBA</a>.</p>
 <p>El grueso de los campos y registros procesados provendrán de las
 bases del dataset de datos abiertos GCBA, sin embargo, se incluirán
 campos ficticios, con el fin de poder profundizar el uso de SQL. Cuando
-esto suceda, será debidamente aclarada.</p>
+esto suceda, será debidamente aclarado.</p>
 </div>
 <div id="objetivos" class="section level2">
 <h2>Objetivos</h2>
@@ -421,12 +420,16 @@ evolución en el tiempo</p></li>
 <li><p>Caracterizar los recorridos realizados (barrio y estación de
 origen, momento en el que se realizó el viaje, duración temporal,
 distancia recorrida).</p></li>
-<li><p>Evaluar el desempeño de los modelos de ECOBICI ofrecidas (el
-campo de calificación del viaje será ficticio)</p></li>
-<li><p>Relacionar perfiles de usuario con volumen de uso de ECOBICI, con
-el fin de desarrollar estrategías de penetración del servicio.</p></li>
-<li><p>Estimar el volumen de ingresos generados por la ECOBICI en caso
-de haber sido un servicio tarifado en 2024.</p></li>
+<li><p>Evaluar las calificaciones otorgadas al recorrido de los modelos
+de ECOBICI ofrecidas (el campo de calificación del viaje será ficticio),
+de manera tal de buscar relaciones entre la calificación y variables
+como modelo de bicicleta utilizado o estacíon de origen.</p></li>
+<li><p>Relacionar perfiles de usuario con el volumen de uso de ECOBICI,
+con el fin de desarrollar estrategías de penetración del
+servicio.</p></li>
+<li><p>Estimar cuál habría sido el volumen de ingresos generados por la
+ECOBICI en caso de haber sido un servicio tarifado para toda la
+población en 2024.</p></li>
 </ul>
 </div>
 <div id="primeras-tablas" class="section level2">
@@ -436,6 +439,9 @@ de haber sido un servicio tarifado en 2024.</p></li>
 <h2>Tablas a presentar en la primera entrega</h2>
 <p>En esta primera entrega, se generaran las siguientes tablas:</p>
 <p><strong>GENERO:</strong></p>
+<p>Esta tabla se utilizará para etiquetar al campo género en las futuras
+consultas. Se establece como Primary Key id_genero y se relacionará con
+el id_genero de la tabla <strong>usuarios.</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -461,6 +467,8 @@ de haber sido un servicio tarifado en 2024.</p></li>
 </tbody>
 </table>
 <p><strong>USUARIOS:</strong></p>
+<p>Esta tabla se utilizará para etiquetar al campo género en las futuras
+consultas.</p>
 <table>
 <colgroup>
 <col width="25%" />
@@ -814,7 +822,7 @@ se espera realizar vía SQL las siguientes consultas / vistas:</p>
 <li>Cantidad de recorridos por barrio</li>
 <li>Calificación del recorrido por estación</li>
 <li>Recorridos por tipo de modelo de bicicleta utilizada</li>
-<li>Calificación promedio otorgada a por modelo de bicleta</li>
+<li>Calificación promedio otorgada por modelo de bicleta</li>
 <li>Ingresos que se podrían haber generado por la utilización del
 servicio por barrio</li>
 <li>Ingresos que se podrían haber generado por la utilización del
