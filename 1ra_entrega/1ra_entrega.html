@@ -373,11 +373,11 @@ Potenciales</h1>
 <p>El servicio de <em>ECOBICIS</em> es un sistema de bicicletas públicas
 ofrecidas por el Gobierno de la Ciudad de Buenos Aires
 <strong>(GCBA)</strong> que funciona desde el año 2010.</p>
-<p>Desde el momento en que se comenzó a funcionar el sistema, el mismo
-fue presentando mutaciones en diferentes aspectos:</p>
+<p>Desde el momento en que comenzó a funcionar el sistema, el mismo fue
+presentando mutaciones en diferentes aspectos:</p>
 <ul>
 <li><p>Se pasó de un sistema de manual y presencial a uno completamente
-automatizado (en la actualidad el retiro de las bicletas requieren la
+automatizado (en la actualidad el retiro de las bicletas requiere de la
 utilización de la app de Ecobici).</p></li>
 <li><p>Se fue mejorando el stock de bicicletas (hoy en día todas poseen
 GPS)</p></li>
@@ -420,10 +420,10 @@ evolución en el tiempo</p></li>
 <li><p>Caracterizar los recorridos realizados (barrio y estación de
 origen, momento en el que se realizó el viaje, duración temporal,
 distancia recorrida).</p></li>
-<li><p>Evaluar las calificaciones otorgadas al recorrido de los modelos
-de ECOBICI ofrecidas (el campo de calificación del viaje será ficticio),
-de manera tal de buscar relaciones entre la calificación y variables
-como modelo de bicicleta utilizado o estacíon de origen.</p></li>
+<li><p>Evaluar las calificaciones otorgadas al recorrido realizado(el
+campo de calificación del viaje será ficticio), de manera tal de buscar
+relaciones entre la calificación y variables como modelo de bicicleta
+utilizado o estacíon de origen.</p></li>
 <li><p>Relacionar perfiles de usuario con el volumen de uso de ECOBICI,
 con el fin de desarrollar estrategías de penetración del
 servicio.</p></li>
@@ -439,9 +439,9 @@ población en 2024.</p></li>
 <h2>Tablas a presentar en la primera entrega</h2>
 <p>En esta primera entrega, se generaran las siguientes tablas:</p>
 <p><strong>GENERO:</strong></p>
-<p>Esta tabla se utilizará para etiquetar al campo género en las futuras
-consultas. Se establece como Primary Key id_genero y se relacionará con
-el id_genero de la tabla <strong>usuarios.</strong></p>
+<p>Esta tabla se utilizará para etiquetar al campo <em>genero</em> en
+las futuras consultas. Se establece como Primary Key id_genero y se
+relacionará con el id_genero de la tabla <strong>usuarios.</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -455,7 +455,7 @@ el id_genero de la tabla <strong>usuarios.</strong></p>
 <tr class="odd">
 <td align="left">id del genero</td>
 <td align="center">id_genero</td>
-<td align="center">INT PRIMARY KEY NOT NULL</td>
+<td align="center">INT</td>
 <td align="center">PK</td>
 </tr>
 <tr class="even">
@@ -467,8 +467,9 @@ el id_genero de la tabla <strong>usuarios.</strong></p>
 </tbody>
 </table>
 <p><strong>USUARIOS:</strong></p>
-<p>Esta tabla se utilizará para etiquetar al campo género en las futuras
-consultas.</p>
+<p>Esta tabla se utilizará para aportar información del usuario en la
+tabla de recorridos, se vinculará a través de la primary key
+<strong>id_usuario</strong>.</p>
 <table>
 <colgroup>
 <col width="25%" />
@@ -488,7 +489,7 @@ consultas.</p>
 <tr class="odd">
 <td align="left">id del usuario</td>
 <td align="center">id_usuario</td>
-<td align="center">INT PRIMARY KEY NOT NULL</td>
+<td align="center">INT</td>
 <td align="center">PK</td>
 </tr>
 <tr class="even">
@@ -500,7 +501,7 @@ consultas.</p>
 <tr class="odd">
 <td align="left">edad</td>
 <td align="center">edad_usuario</td>
-<td align="center">INT NOT NULL</td>
+<td align="center">INT</td>
 <td align="center">-</td>
 </tr>
 <tr class="even">
@@ -518,13 +519,11 @@ consultas.</p>
 </tbody>
 </table>
 <p><strong>COMUNA:</strong></p>
+<p>Esta tabla se utilizará para etiquetar al campo <em>comuna</em> en
+las futuras consultas. Se establece como Primary Key id_comuna y se
+relacionará con el id_comuna de la tabla
+<strong>recorridos.</strong></p>
 <table>
-<colgroup>
-<col width="25%" />
-<col width="22%" />
-<col width="25%" />
-<col width="27%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Nombre Campo</th>
@@ -537,18 +536,22 @@ consultas.</p>
 <tr class="odd">
 <td align="left">id de la comuna</td>
 <td align="center">id_comuna</td>
-<td align="center">INT NOT NULL</td>
+<td align="center">INT</td>
 <td align="center">PK</td>
 </tr>
 <tr class="even">
 <td align="left">nombre de la comuna</td>
 <td align="center">nombre_comuna</td>
-<td align="center">VARCHAR (10) NOT NULL</td>
+<td align="center">VARCHAR (10)</td>
 <td align="center">-</td>
 </tr>
 </tbody>
 </table>
 <p><strong>BARRIO:</strong></p>
+<p>Esta tabla se utilizará para etiquetar al campo <em>barrio</em> y
+aportar información de los barrios en las futuras consultas. Se
+establece como Primary Key <em>id_barrio</em> y se relacionará con el
+<em>id_barrio</em> de la tabla <strong>recorridos.</strong></p>
 <table>
 <colgroup>
 <col width="25%" />
@@ -604,6 +607,10 @@ consultas.</p>
 </tbody>
 </table>
 <p><strong>ESTACIONES:</strong></p>
+<p>Esta tabla se utilizará para etiquetar al campo <em>estacion</em> en
+las futuras consultas y para aportar infomración de las estaciones. Se
+establece como Primary Key <em>id_estacion</em> y se relacionará con el
+<em>id_estacion</em> de la tabla <strong>recorridos.</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -630,7 +637,7 @@ consultas.</p>
 <td align="left">dirección de la estación</td>
 <td align="center">direccion</td>
 <td align="center">VARCHAR (60)</td>
-<td align="center">FK</td>
+<td align="center">-</td>
 </tr>
 <tr class="even">
 <td align="left">id del barrio</td>
@@ -653,6 +660,10 @@ consultas.</p>
 </tbody>
 </table>
 <p><strong>MODELO:</strong></p>
+<p>Esta tabla se utilizará para etiquetar al campo <em>modelo</em> (de
+la bicicleta) en las futuras consultas. Se establece como Primary Key
+<em>id_modelo</em> y se relacionará con el <em>id_modelo</em> de la
+tabla <strong>recorridos.</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -678,6 +689,10 @@ consultas.</p>
 </tbody>
 </table>
 <p><strong>MESES:</strong></p>
+<p>Esta tabla se utilizará para etiquetar al campo <em>mes</em> en las
+futuras consultas. Se establece como Primary Key <em>id_mes</em> y se
+relacionará con el <em>id_mes</em> de la tabla
+<strong>recorridos.</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -703,6 +718,10 @@ consultas.</p>
 </tbody>
 </table>
 <p><strong>PRECIOS:</strong></p>
+<p>Esta tabla se utilizará para etiquetar al campo <em>precio</em> en
+las futuras consultas. Se establece como Primary Key <em>id_mes</em> y
+se relacionará con el <em>id_mes</em> de la tabla
+<strong>recorridos.</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -728,6 +747,8 @@ consultas.</p>
 </tbody>
 </table>
 <p><strong>RECORRIDOS:</strong></p>
+<p>Esta tabla aportara información del <em>recorrido</em>,
+relacionándose con las tablas anteriormente descriptas.</p>
 <table>
 <colgroup>
 <col width="25%" />
@@ -745,9 +766,9 @@ consultas.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">id de la estacion de bici</td>
+<td align="left">id del recorrido realizado</td>
 <td align="center">id_recorrido</td>
-<td align="center">INT</td>
+<td align="center">INT AUTO INCREASE</td>
 <td align="center">PK</td>
 </tr>
 <tr class="even">
@@ -778,7 +799,7 @@ consultas.</p>
 <td align="left">id de la estacion de destino</td>
 <td align="center">idx_estacion_dest</td>
 <td align="center">INT</td>
-<td align="center">-</td>
+<td align="center">FK</td>
 </tr>
 <tr class="odd">
 <td align="left">fecha y hora en que se produce el retiro</td>
@@ -838,9 +859,9 @@ selecciónar a los quintiles más altos)</li>
 <li>Minutos de recorrido por edad</li>
 <li>Minutos de recorrido por estación de origen</li>
 </ul>
-<p>A futuro, se incorporarán consultas que implicarán el cruce de una
-mayor cantidad de variables, como por ejemplo cantidad de recorridos por
-sexo, según estación.</p>
+<p><strong>A futuro, se incorporarán consultas que implicarán el cruce
+de una mayor cantidad de variables</strong>, como por ejemplo cantidad
+de recorridos por sexo, según estación.</p>
 </div>
 </div>
 

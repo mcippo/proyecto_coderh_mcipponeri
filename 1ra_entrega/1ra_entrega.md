@@ -20,9 +20,9 @@
 
 El servicio de _ECOBICIS_ es un sistema de bicicletas públicas ofrecidas por el Gobierno de la Ciudad de Buenos Aires **(GCBA)** que funciona desde el año 2010.
 
-Desde el momento en que se comenzó a funcionar el sistema, el mismo fue presentando mutaciones en diferentes aspectos:
+Desde el momento en que comenzó a funcionar el sistema, el mismo fue presentando mutaciones en diferentes aspectos:
   
-  - Se pasó de un sistema de manual y presencial a uno completamente automatizado (en la actualidad el retiro de las bicletas requieren la utilización de la app de Ecobici).
+  - Se pasó de un sistema de manual y presencial a uno completamente automatizado (en la actualidad el retiro de las bicletas requiere de la utilización de la app de Ecobici).
   
   - Se fue mejorando el stock de bicicletas (hoy en día todas poseen GPS)
   
@@ -49,7 +49,7 @@ A través del uso del herramental ofrecido por SQL en las bases de datos mencion
  
  * Caracterizar los recorridos realizados (barrio y estación de origen, momento en el que se realizó el viaje, duración temporal, distancia recorrida).
  
- * Evaluar las calificaciones otorgadas al recorrido de los modelos de ECOBICI ofrecidas (el campo de calificación del viaje será ficticio), de manera tal de buscar relaciones entre la calificación y variables como modelo de bicicleta utilizado o estacíon de origen.
+ * Evaluar las calificaciones otorgadas al recorrido realizado(el campo de calificación del viaje será ficticio), de manera tal de buscar relaciones entre la calificación y variables como modelo de bicicleta utilizado o estacíon de origen.
  
  * Relacionar perfiles de usuario con el volumen de uso de ECOBICI, con el fin de desarrollar estrategías de penetración del servicio.
  
@@ -63,7 +63,7 @@ En esta primera entrega, se generaran las siguientes tablas:
 
  **GENERO:** 
 
-Esta tabla se utilizará para etiquetar al campo género en las futuras consultas. Se establece como Primary Key id_genero y se relacionará con el id_genero de la tabla **usuarios.**
+Esta tabla se utilizará para etiquetar al campo _genero_ en las futuras consultas. Se establece como Primary Key id_genero y se relacionará con el id_genero de la tabla **usuarios.**
 
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
@@ -74,7 +74,7 @@ Esta tabla se utilizará para etiquetar al campo género en las futuras consulta
 
  **USUARIOS:** 
 
-Esta tabla se utilizará para para aportar información del usuario en la tabla de recorridos, se vinculará a través de la primary key **id_usuario**.
+Esta tabla se utilizará para aportar información del usuario en la tabla de recorridos, se vinculará a través de la primary key **id_usuario**.
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
@@ -87,7 +87,7 @@ Esta tabla se utilizará para para aportar información del usuario en la tabla 
 
  **COMUNA:** 
 
-Esta tabla se utilizará para etiquetar al campo comuna en las futuras consultas. Se establece como Primary Key id_comuna y se relacionará con el id_comuna de la tabla **recorridos.**
+Esta tabla se utilizará para etiquetar al campo _comuna_ en las futuras consultas. Se establece como Primary Key id_comuna y se relacionará con el id_comuna de la tabla **recorridos.**
 
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
@@ -98,7 +98,7 @@ Esta tabla se utilizará para etiquetar al campo comuna en las futuras consultas
 
  **BARRIO:** 
 
-Esta tabla se utilizará para etiquetar al campo barrio en las futuras consultas. Se establece como Primary Key id_barrio y se relacionará con el id_barrio de la tabla **recorridos.**
+Esta tabla se utilizará para etiquetar al campo _barrio_ y aportar información de los barrios en las futuras consultas. Se establece como Primary Key _id_barrio_ y se relacionará con el _id_barrio_ de la tabla **recorridos.**
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
@@ -112,7 +112,7 @@ Esta tabla se utilizará para etiquetar al campo barrio en las futuras consultas
 
  **ESTACIONES:** 
 
-Esta tabla se utilizará para etiquetar al campo estacion en las futuras consultas. Se establece como Primary Key id_estacion y se relacionará con el id_estacion de la tabla **recorridos.**
+Esta tabla se utilizará para etiquetar al campo _estacion_ en las futuras consultas y para aportar infomración de las estaciones. Se establece como Primary Key _id_estacion_ y se relacionará con el _id_estacion_ de la tabla **recorridos.**
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
@@ -125,7 +125,7 @@ Esta tabla se utilizará para etiquetar al campo estacion en las futuras consult
 
  **MODELO:** 
 
-Esta tabla se utilizará para etiquetar al campo modelo en las futuras consultas. Se establece como Primary Key id_modelo y se relacionará con el id_modelo de la tabla **recorridos.**
+Esta tabla se utilizará para etiquetar al campo _modelo_ (de la bicicleta) en las futuras consultas. Se establece como Primary Key _id_modelo_ y se relacionará con el _id_modelo_ de la tabla **recorridos.**
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
@@ -135,7 +135,7 @@ Esta tabla se utilizará para etiquetar al campo modelo en las futuras consultas
 
  **MESES:** 
 
-Esta tabla se utilizará para etiquetar al campo mes en las futuras consultas. Se establece como Primary Key id_mes y se relacionará con el id_mes de la tabla **recorridos.**
+Esta tabla se utilizará para etiquetar al campo _mes_ en las futuras consultas. Se establece como Primary Key _id_mes_ y se relacionará con el _id_mes_ de la tabla **recorridos.**
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
@@ -145,7 +145,7 @@ Esta tabla se utilizará para etiquetar al campo mes en las futuras consultas. S
 
  **PRECIOS:** 
 
-Esta tabla se utilizará para etiquetar al campo precio en las futuras consultas. Se establece como Primary Key id_mes y se relacionará con el **id_mes** de la tabla **recorridos.**
+Esta tabla se utilizará para etiquetar al campo _precio_ en las futuras consultas. Se establece como Primary Key _id_mes_ y se relacionará con el _id_mes_ de la tabla **recorridos.**
 
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
@@ -156,6 +156,8 @@ Esta tabla se utilizará para etiquetar al campo precio en las futuras consultas
 
 
  **RECORRIDOS:** 
+
+Esta tabla aportara información del _recorrido_, relacionándose con las tablas anteriormente descriptas.
 
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
@@ -197,7 +199,7 @@ A través de la utilización de las bases mencionadas, a priori (ya que a futuro
  * Minutos de recorrido por edad
  * Minutos de recorrido por estación de origen
  
- A futuro, se incorporarán consultas que implicarán el cruce de una mayor cantidad de variables, como por ejemplo cantidad de recorridos por sexo, según estación.
+**A futuro, se incorporarán consultas que implicarán el cruce de una mayor cantidad de variables**, como por ejemplo cantidad de recorridos por sexo, según estación.
  
  
  
