@@ -39,6 +39,13 @@ write.csv(usuarios_final[1:1000,],"insumos/usuarios_sample.csv",
           fileEncoding = "Latin1")
 
 
+usuarios_sample <- read.csv("insumos/usuarios_sample.csv")
+
+
+writexl::write_xlsx(usuarios_sample,"insumos/usuarios_sample.xlsx")
+
+
+
 # Limpieza:
 
 rm(usuarios, usuarios_final)
@@ -71,11 +78,12 @@ recorridos <- read_csv("procesamientos_r/badata_ecobici_recorridos_realizados_20
 recorridos_final <- recorridos %>% 
   mutate(id_mes=month(fecha_origen_recorrido),
          calificacion=sample(1:10, size = n(), replace = TRUE),
-         id_modelo=sample(1:2, size = n(), replace = TRUE)) %>% 
+         id_modelo=sample(1:2, size = n(), replace = TRUE),
+         id_precio=id_mes) %>% 
   select(id_recorrido,id_usuario,id_estacion_orig=id_estacion_origen,
          id_mes,fecha_origen=fecha_origen_recorrido,
          id_estacion_dest=id_estacion_destino,
-         fecha_dest=fecha_destino_recorrido,id_modelo,calificacion,id_precio=id_mes)
+         fecha_dest=fecha_destino_recorrido,id_modelo,calificacion,id_precio)
 
 
 
@@ -86,14 +94,26 @@ write.csv(recorridos_final,"insumos/recorridos.csv",
           na="",
           fileEncoding = "Latin1")
 
+recorridos_final <- read.csv("insumos/recorridos_sample.csv")
+
 # Se guarda una muestra de 1000 casos
 
-write.csv(recorridos_final[1:1000,],"insumos/recorridos_sample.csv",
+write.csv(recorridos_final[1:100,],"insumos/recorridos_sample.csv",
           row.names = FALSE,
           na="",
           fileEncoding = "Latin1")
 
 
+writexl::write_xlsx(recorridos_final,"insumos/recorridos_sample.xlsx")
+
+x <- recorridos_final %>% 
+  group_by(id_usuario) %>% 
+  summarise(casos=n())
+
+writexl::write_xlsx(x,"insumos/listado_usuarios_borrar.xlsx")
+
+
+# filtro de la base de usuarios:
 
 rm(url)
 
@@ -101,7 +121,6 @@ rm(url)
 #### ESTACIONES ####
 
 estaciones <- read.csv("https://cdn.buenosaires.gob.ar/datosabiertos/datasets/transporte-y-obras-publicas/estaciones-bicicletas-publicas/nuevas-estaciones-bicicletas-publicas.csv")
-
 
 
 # Asignación de barrios a las estaciones:
@@ -196,80 +215,23 @@ estaciones_final <- estaciones_2 %>%
                              barrio=="Villa Santa Rita"~46,
                              barrio=="Villa Soldati"~47,
                              barrio=="Villa Urquiza"~48)) %>% 
-  select(id_estacion,nombre,direccion,id_barrio,latitud,longitud)
+  select(id_estacion,nombre,direccion,id_barrio,latitud,longitud) %>% 
+  mutate(latitud=round(latitud,6),
+         longitud=round(longitud,6))
 
 rm(estaciones,estaciones_2)
 
 # Se guarda el CSV
 
+
 write.csv(estaciones_final,"insumos/estaciones.csv",
-           row.names = FALSE,
-           na="",
-           fileEncoding = "Latin1")
+          row.names = FALSE,
+          na="",
+          fileEncoding = "Latin1")
+
+rm(estaciones_final)
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-#### Borrar todo esto ####
-
-
-barrios <- read.csv("barrios_caba.csv")
-
-
-writexl::write_xlsx(barrios,"barrios.xlsx")
-
-usuarios <- read.csv("usuarios_ecobici_2024.csv")
-
-
-recorridos <- readRDS("recorridos_2024.rds")
-
-listado_estaciones <- estaciones %>% select(id,latitud,longitud)
-
-
-writexl::write_xlsx(listado_estaciones,"estaciones_barrio.xlsx")
-
-
-#### Asignación de barrios a estaciones ####
-
-estaciones <- read.csv("nuevas-estaciones-bicicletas-publicas.csv")
-
-barrios_est <- readxl::read_xlsx("estaciones_con_barrios.xlsx")
-
-listado_estaciones_final <-  estaciones %>% 
-  select(-c(barrio,comuna,emplazamiento)) %>% 
-  left_join(barrios_est)
-
-chequeo <- listado_estaciones_final %>% filter(is.na(barrio))  
-
-
-# Asignación manual de NAS:
-
-listado_estaciones_final <- listado_estaciones_final %>% 
-  mutate(barrio=case_when(nombre=="AEROPARQUE"~"Palermo",
-                          nombre=="MACACHA GUEMES"~"Belgrano",
-                          TRUE~barrio)) %>% 
-  select(1:4,7,5,6) %>% 
-  arrange(id)
-
-# Ahora se asigna un id_barrio:
-
-barrio <- read_xlsx("tabla_barrios.xlsx") %>% 
-  select(barrio,id_barrio)
-
-
-listado_estaciones_final <- listado_estaciones_final %>% 
-  left_join(barrio)
-
-# Se guarda las tablas de las estaciones:
-
-writexl::write_xlsx(listado_estaciones_final,"estaciones.xlsx")
