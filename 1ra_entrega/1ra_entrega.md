@@ -24,14 +24,14 @@ Desde el momento en que comenzó a funcionar el sistema, el mismo fue presentand
   
   - Se pasó de un sistema de manual y presencial a uno completamente automatizado (en la actualidad el retiro de las bicletas requiere de la utilización de la app de Ecobici).
   
-  - Se fue mejorando el stock de bicicletas (hoy en día todas poseen GPS)
+  - Se fue aumentando el stock y las prestaciones de las bicicletas (hoy en día todas poseen GPS)
   
-  - En 2018 se consecionó el servicio, siendo la empresa brasilera **TEAMBICI** la que ganó la licitación (y la ostenta hasta la actualidad).
+  - En 2018 se concecionó el servicio, siendo la empresa brasilera **TEAMBICI** la que ganó la licitación (y la ostenta hasta la actualidad).
   
   - Finalmente, uno de los cambios más relevantes se produjo en 2020, cuando se aranceló parcialmente el servicio, teniendo que pagar los no residentes un importe por la utilización de las bicicletas.
 
 
-Si bien el servicio de _ECOBICI_ viene demostrando un exitoso desempeño (si se toma como parámetro la evolución de unidades y estaciones disponibles, los usuarios y viajes realizados), tanto desde el GCBA como desde TEAMBICI se busca realizar modificaciones en el servicio, en pos de mejorar la experiencia para los usuarios, incrementar la penetración del servicio y mejorar los márgenes de ganancia del Gobierno y la empresa a cargo de la conseción.
+Si bien el servicio de _ECOBICI_ viene demostrando un exitoso desempeño (si se toma como parámetro la evolución de unidades y estaciones disponibles, los usuarios y viajes realizados), tanto desde el GCBA como desde TEAMBICI se busca realizar modificaciones en el servicio, en pos de mejorar la experiencia para los usuarios, incrementar la penetración del servicio y mejorar los márgenes de ganancia del Gobierno y la empresa a cargo de la concesion.
 
 Establecido dicho norte, se buscará realizar un estudio que de cuenta tanto del volumen de la utilización de ECOBICI, como del perfil de los usuarios/viajes realizados. Esto permitirá llevar a cabo acciones orientadas a satisfacer los objetivos planteados en el párrafo anterior.
 
@@ -49,7 +49,7 @@ A través del uso del herramental ofrecido por SQL en las bases de datos mencion
  
  * Caracterizar los recorridos realizados (barrio y estación de origen, momento en el que se realizó el viaje, duración temporal, distancia recorrida).
  
- * Evaluar las calificaciones otorgadas al recorrido realizado(el campo de calificación del viaje será ficticio), de manera tal de buscar relaciones entre la calificación y variables como modelo de bicicleta utilizado o estacíon de origen.
+ * Evaluar las calificaciones otorgadas al recorrido realizado (el campo de calificación del viaje será ficticio), de manera tal de buscar relaciones entre la calificación y variables como: modelo de bicicleta utilizado o estacíon de origen.
  
  * Relacionar perfiles de usuario con el volumen de uso de ECOBICI, con el fin de desarrollar estrategías de penetración del servicio.
  
@@ -63,7 +63,7 @@ En esta primera entrega, se generaran las siguientes tablas:
 
  **GENERO:** 
 
-Esta tabla se utilizará para etiquetar al campo _genero_ en las futuras consultas. Se establece como Primary Key id_genero y se relacionará con el id_genero de la tabla **usuarios.**
+Esta tabla se utilizará para etiquetar al campo _genero_ en las futuras consultas. Se establece como Primary Key _id_genero_ y se relacionará con el _id_genero_ de la tabla **usuarios.**
 
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
@@ -74,7 +74,7 @@ Esta tabla se utilizará para etiquetar al campo _genero_ en las futuras consult
 
  **USUARIOS:** 
 
-Esta tabla se utilizará para aportar información del usuario en la tabla de recorridos, se vinculará a través de la primary key **id_usuario**.
+Esta tabla se utilizará para aportar información del usuario en la tabla de **recorridos**, se vinculará a través de la primary key _id_usuario_.
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
@@ -87,7 +87,7 @@ Esta tabla se utilizará para aportar información del usuario en la tabla de re
 
  **COMUNA:** 
 
-Esta tabla se utilizará para etiquetar al campo _comuna_ en las futuras consultas. Se establece como Primary Key id_comuna y se relacionará con el id_comuna de la tabla **recorridos.**
+Esta tabla se utilizará para etiquetar al campo _comuna_ en las futuras consultas. Se establece como Primary Key _id_comuna_ y se relacionará con el _id_comuna_ de la tabla **barrios.**
 
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
@@ -112,7 +112,7 @@ Esta tabla se utilizará para etiquetar al campo _barrio_ y aportar información
 
  **ESTACIONES:** 
 
-Esta tabla se utilizará para etiquetar al campo _estacion_ en las futuras consultas y para aportar infomración de las estaciones. Se establece como Primary Key _id_estacion_ y se relacionará con el _id_estacion_ de la tabla **recorridos.**
+Esta tabla se utilizará para etiquetar al campo _estacion_ en las futuras consultas y para aportar información de las estaciones. Se establece como Primary Key _id_estacion_ y se relacionará con el _id_estacion_ de la tabla **recorridos.**
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
@@ -137,6 +137,7 @@ Esta tabla se utilizará para etiquetar al campo _modelo_ (de la bicicleta) en l
 
 Esta tabla se utilizará para etiquetar al campo _mes_ en las futuras consultas. Se establece como Primary Key _id_mes_ y se relacionará con el _id_mes_ de la tabla **recorridos.**
 
+
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
 | id  del mes | id_mes | INT | PK |
@@ -144,6 +145,7 @@ Esta tabla se utilizará para etiquetar al campo _mes_ en las futuras consultas.
 
 
  **PRECIOS:** 
+
 
 Esta tabla se utilizará para etiquetar al campo _precio_ en las futuras consultas. Se establece como Primary Key _id_mes_ y se relacionará con el _id_mes_ de la tabla **recorridos.**
 
@@ -157,7 +159,7 @@ Esta tabla se utilizará para etiquetar al campo _precio_ en las futuras consult
 
  **RECORRIDOS:** 
 
-Esta tabla aportara información del _recorrido_, relacionándose con las tablas anteriormente descriptas.
+Esta tabla aportará información del _recorrido_, relacionándose con las tablas anteriormente descritas.
 
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |

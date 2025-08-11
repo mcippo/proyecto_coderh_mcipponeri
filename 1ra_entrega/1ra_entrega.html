@@ -379,9 +379,9 @@ presentando mutaciones en diferentes aspectos:</p>
 <li><p>Se pasó de un sistema de manual y presencial a uno completamente
 automatizado (en la actualidad el retiro de las bicletas requiere de la
 utilización de la app de Ecobici).</p></li>
-<li><p>Se fue mejorando el stock de bicicletas (hoy en día todas poseen
-GPS)</p></li>
-<li><p>En 2018 se consecionó el servicio, siendo la empresa brasilera
+<li><p>Se fue aumentando el stock y las prestaciones de las bicicletas
+(hoy en día todas poseen GPS)</p></li>
+<li><p>En 2018 se concecionó el servicio, siendo la empresa brasilera
 <strong>TEAMBICI</strong> la que ganó la licitación (y la ostenta hasta
 la actualidad).</p></li>
 <li><p>Finalmente, uno de los cambios más relevantes se produjo en 2020,
@@ -394,7 +394,7 @@ estaciones disponibles, los usuarios y viajes realizados), tanto desde
 el GCBA como desde TEAMBICI se busca realizar modificaciones en el
 servicio, en pos de mejorar la experiencia para los usuarios,
 incrementar la penetración del servicio y mejorar los márgenes de
-ganancia del Gobierno y la empresa a cargo de la conseción.</p>
+ganancia del Gobierno y la empresa a cargo de la concesion.</p>
 <p>Establecido dicho norte, se buscará realizar un estudio que de cuenta
 tanto del volumen de la utilización de ECOBICI, como del perfil de los
 usuarios/viajes realizados. Esto permitirá llevar a cabo acciones
@@ -420,9 +420,9 @@ evolución en el tiempo</p></li>
 <li><p>Caracterizar los recorridos realizados (barrio y estación de
 origen, momento en el que se realizó el viaje, duración temporal,
 distancia recorrida).</p></li>
-<li><p>Evaluar las calificaciones otorgadas al recorrido realizado(el
+<li><p>Evaluar las calificaciones otorgadas al recorrido realizado (el
 campo de calificación del viaje será ficticio), de manera tal de buscar
-relaciones entre la calificación y variables como modelo de bicicleta
+relaciones entre la calificación y variables como: modelo de bicicleta
 utilizado o estacíon de origen.</p></li>
 <li><p>Relacionar perfiles de usuario con el volumen de uso de ECOBICI,
 con el fin de desarrollar estrategías de penetración del
@@ -440,8 +440,9 @@ población en 2024.</p></li>
 <p>En esta primera entrega, se generaran las siguientes tablas:</p>
 <p><strong>GENERO:</strong></p>
 <p>Esta tabla se utilizará para etiquetar al campo <em>genero</em> en
-las futuras consultas. Se establece como Primary Key id_genero y se
-relacionará con el id_genero de la tabla <strong>usuarios.</strong></p>
+las futuras consultas. Se establece como Primary Key <em>id_genero</em>
+y se relacionará con el <em>id_genero</em> de la tabla
+<strong>usuarios.</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -468,8 +469,8 @@ relacionará con el id_genero de la tabla <strong>usuarios.</strong></p>
 </table>
 <p><strong>USUARIOS:</strong></p>
 <p>Esta tabla se utilizará para aportar información del usuario en la
-tabla de recorridos, se vinculará a través de la primary key
-<strong>id_usuario</strong>.</p>
+tabla de <strong>recorridos</strong>, se vinculará a través de la
+primary key <em>id_usuario</em>.</p>
 <table>
 <colgroup>
 <col width="25%" />
@@ -520,9 +521,9 @@ tabla de recorridos, se vinculará a través de la primary key
 </table>
 <p><strong>COMUNA:</strong></p>
 <p>Esta tabla se utilizará para etiquetar al campo <em>comuna</em> en
-las futuras consultas. Se establece como Primary Key id_comuna y se
-relacionará con el id_comuna de la tabla
-<strong>recorridos.</strong></p>
+las futuras consultas. Se establece como Primary Key <em>id_comuna</em>
+y se relacionará con el <em>id_comuna</em> de la tabla
+<strong>barrios.</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -608,7 +609,7 @@ establece como Primary Key <em>id_barrio</em> y se relacionará con el
 </table>
 <p><strong>ESTACIONES:</strong></p>
 <p>Esta tabla se utilizará para etiquetar al campo <em>estacion</em> en
-las futuras consultas y para aportar infomración de las estaciones. Se
+las futuras consultas y para aportar información de las estaciones. Se
 establece como Primary Key <em>id_estacion</em> y se relacionará con el
 <em>id_estacion</em> de la tabla <strong>recorridos.</strong></p>
 <table>
@@ -747,8 +748,8 @@ se relacionará con el <em>id_mes</em> de la tabla
 </tbody>
 </table>
 <p><strong>RECORRIDOS:</strong></p>
-<p>Esta tabla aportara información del <em>recorrido</em>,
-relacionándose con las tablas anteriormente descriptas.</p>
+<p>Esta tabla aportará información del <em>recorrido</em>,
+relacionándose con las tablas anteriormente descritas.</p>
 <table>
 <colgroup>
 <col width="25%" />
