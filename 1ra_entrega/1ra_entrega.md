@@ -26,7 +26,7 @@ Desde el momento en que comenzó a funcionar el sistema, el mismo fue presentand
   
   - Se fue aumentando el stock y las prestaciones de las bicicletas (hoy en día todas poseen GPS)
   
-  - En 2018 se concecionó el servicio, siendo la empresa brasilera **TEAMBICI** la que ganó la licitación (y la ostenta hasta la actualidad).
+  - En 2018 se concesionó el servicio, siendo la empresa brasilera **TEAMBICI** la que ganó la licitación (y la ostenta hasta la actualidad).
   
   - Finalmente, uno de los cambios más relevantes se produjo en 2020, cuando se aranceló parcialmente el servicio, teniendo que pagar los no residentes un importe por la utilización de las bicicletas.
 
