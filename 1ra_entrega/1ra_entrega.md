@@ -79,9 +79,9 @@ Esta tabla se utilizará para aportar información del usuario en la tabla de **
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
 | id  del usuario | id_usuario | INT | PK|
-| id del genero  | genero_usuario | VARCHAR (10) | FK      |
+| id del genero  | genero_usuario | INT | FK      |
 | edad  | edad_usuario | INT  | -      |
-| fecha de inscripción en ECOBICI  | fecha_alta | DATE NOT NULL | -      |
+| fecha de inscripción en ECOBICI  | fecha_alta | DATE | -      |
 | hora de la fecha del alta  | hora_alta | TIME | -      |
 
 
@@ -120,8 +120,8 @@ Esta tabla se utilizará para etiquetar al campo _estacion_ en las futuras consu
 | nombre de la estación  | nombre | VARCHAR (40) | - | 
 | dirección de la estación  | direccion | VARCHAR (60) | - |
 | id del barrio  | id_barrio | INT |  FK     |
-| longitud de la estación  | long_estacion | DECIMAL(9,6) |  - |
-| latitud de la estación  | lat_estacion | INT |  (9,6)     | - 
+| latitud de la estación  | latitud | DECIMAL(9,6) |  - |
+| longitud de la estación  | longitud | DECIMAL(9,6)  | - |
 
  **MODELO:** 
 
@@ -156,7 +156,6 @@ Esta tabla se utilizará para etiquetar al campo _precio_ en las futuras consult
 | precio sugerido por el cobro del servicio  | precio | INT | - | 
 
 
-
  **RECORRIDOS:** 
 
 Esta tabla aportará información del _recorrido_, relacionándose con las tablas anteriormente descritas.
@@ -165,15 +164,15 @@ Esta tabla aportará información del _recorrido_, relacionándose con las tabla
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
 | id  del recorrido realizado | id_recorrido | INT AUTO INCREASE | PK|
-| id del usuario  | idx_usuario | INT | FK | 
-| id de la estacion de origen  | idx_estacion_orig | INT |  FK     |
-| id del mes en que se produce el recorrido  | idx_mes | INT |  FK     |
+| id del usuario  | id_usuario | INT | FK | 
+| id de la estacion de origen  | id_estacion_orig | INT |  FK     |
+| id del mes en que se produce el recorrido  | id_mes | INT |  FK     |
 | fecha en que se retira la bici  | fecha_origen | DATETIME |  -     |
-| id de la estacion de destino  | idx_estacion_dest | INT |  FK     |
+| id de la estacion de destino  | id_estacion_dest | INT |  FK     |
 | fecha y hora en que se produce el retiro  | fecha_dest | DATETIME | -     |
-| id del modelo de la bici utilizada  | idx_modelo | INT | FK     |
-| calificación de la experiencia de uso de la bici  | calificacion | INT | -     |
-| id del precio que se debería haber pagado por la bici  | idx_precio | INT | FK     |
+| id del modelo de la bici utilizada  | id_modelo | INT | FK     |
+| calificación de la experiencia de uso de la bici  | calificacion | INT | -  |
+| id del precio que se debería haber pagado por la bici  | id_precio | INT | FK |
 
 
 ## Resultados esperados
