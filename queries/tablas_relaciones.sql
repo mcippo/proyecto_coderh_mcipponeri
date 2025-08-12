@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS genero(
 id_genero INT PRIMARY KEY NOT NULL,
 genero_usuario VARCHAR (10));
 
+-- Se completan los registros:
+
 INSERT INTO genero(id_genero,genero_usuario) VALUES
 	(1,"femenino"),
     (2,"masculino"),
@@ -638,6 +640,7 @@ modelo VARCHAR (10));
 INSERT INTO modelo(id_modelo,modelo) VALUES
 	(1,"fit"),
     (2,"iconic");
+    
 
  -- Se genera la tabla meses:
   
@@ -682,7 +685,7 @@ INSERT INTO precios(id_precio,precio) VALUES
     (12,1400);
     
  
--- Se genera una primera tabla la tabla con las relaciones (acá sacar el x):
+-- Se genera una primera tabla la tabla con los recorridoss:
 
 CREATE TABLE IF NOT EXISTS recorridos (
 	id_recorrido INT PRIMARY KEY NOT NULL,
@@ -702,8 +705,6 @@ CREATE TABLE IF NOT EXISTS recorridos (
     FOREIGN KEY (id_modelo) REFERENCES modelo(id_modelo),
     FOREIGN KEY (id_precio) REFERENCES precios(id_precio)
 );
-
-DROP TABLE recorridos;
 
 -- Se genera una muestra de 100 registros de recorridos (más adelante se importarán desde un csv)
 
@@ -804,6 +805,7 @@ INSERT INTO recorridos(id_recorrido,id_usuario,id_estacion_orig,id_mes,
 (20430993,958388,56,1,'2024-01-23 21:16:30',369,'2024-01-23 21:54:14',2,5,1),
 (20425214,958388,369,1,'2024-01-23 15:52:46',418,'2024-01-23 16:21:28',1,7,1);
 
+ 
 SELECT * FROM recorridos;
 
 

@@ -1,6 +1,8 @@
 # ORGANIZACIÓN DEL REPOSITORIO:
 
-🚴‍♂ **SISTEMA DE ECOBICI EN CABA: Funcionamiento y Mejoras Potenciales** 🚴‍♂️
+🚴🚴🚴 **SISTEMA DE ECOBICI EN CABA: Funcionamiento y Mejoras Potenciales** 🚴🚴🚴️
+
+**Autor:** _Mariano Cipponeri_
 
 En el repositorio se encontrará la siguiente información:
 
@@ -12,6 +14,6 @@ En el repositorio se encontrará la siguiente información:
 
 - [Tablas con los resultados -sin datos aún- ](resultados/) 🧮
 
-- [Bases de datos -sin datos aún- ](bases/) 💾
+- [Insumos intermedios que se generan con los procesamientos en R](insumos/) 💾
 
 - [Scripts para procesar datos en R, -no utilizar- ](procesamientos_r/) 📈
