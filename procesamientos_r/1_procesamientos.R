@@ -104,17 +104,17 @@ write.csv(usuarios_final,"insumos/usuarios.csv",
 
 
 # Se guarda una muestra de 1000 casos
+# 
+# write.csv(usuarios_final[1:1000,],"insumos/usuarios_sample.csv",
+#           row.names = FALSE,
+#           na="",
+#           fileEncoding = "Latin1")
 
-write.csv(usuarios_final[1:1000,],"insumos/usuarios_sample.csv",
-          row.names = FALSE,
-          na="",
-          fileEncoding = "Latin1")
-
-
-usuarios_sample <- read.csv("insumos/usuarios_sample.csv")
-
-
-writexl::write_xlsx(usuarios_sample,"insumos/usuarios_sample.xlsx")
+# 
+# usuarios_sample <- read.csv("insumos/usuarios_sample.csv")
+# 
+# 
+# writexl::write_xlsx(usuarios_sample,"insumos/usuarios_sample.xlsx")
 
 
 # Limpieza:
@@ -165,29 +165,32 @@ write.csv(recorridos_final,"insumos/recorridos.csv",
           na="",
           fileEncoding = "Latin1")
 
-recorridos_final <- read.csv("insumos/recorridos_sample.csv")
-
-# Se guarda una muestra de 1000 casos
-
-write.csv(recorridos_final[1:100,],"insumos/recorridos_sample.csv",
-          row.names = FALSE,
-          na="",
-          fileEncoding = "Latin1")
-
-
-writexl::write_xlsx(recorridos_final,"insumos/recorridos_sample.xlsx")
-
-x <- recorridos_final %>% 
-  group_by(id_usuario) %>% 
-  summarise(casos=n())
-
-writexl::write_xlsx(x,"insumos/listado_usuarios_borrar.xlsx")
+# 
+# recorridos_final <- read.csv("insumos/recorridos_sample.csv")
+# 
+# # Se guarda una muestra de 1000 casos
+# 
+# write.csv(recorridos_final[1:100,],"insumos/recorridos_sample.csv",
+#           row.names = FALSE,
+#           na="",
+#           fileEncoding = "Latin1")
+# 
+# 
+# writexl::write_xlsx(recorridos_final,"insumos/recorridos_sample.xlsx")
+# 
+# x <- recorridos_final %>% 
+#   group_by(id_usuario) %>% 
+#   summarise(casos=n())
+# 
+# writexl::write_xlsx(x,"insumos/listado_usuarios_borrar.xlsx")
 
 
 # filtro de la base de usuarios:
 
 rm(url)
 
+
+#### POR AHORA NO SE USA A PARTIR DE ACÁ ####
 
 #### ESTACIONES ####
 

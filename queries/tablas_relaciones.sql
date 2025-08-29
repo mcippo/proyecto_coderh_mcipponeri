@@ -2,6 +2,8 @@
 
 CREATE DATABASE IF NOT EXISTS ecobici;
 
+DROP database ecobici;
+
 USE ecobici;
  
 -- Tabla género:
@@ -26,7 +28,30 @@ id_genero INT  NOT NULL,
         REFERENCES genero(id_genero),
 edad_usuario INT NOT NULL,
 fecha_alta DATE NOT NULL,
-hora_alta TIME);
+hora_alta TIME); 
+
+-- Acá cargar la base de usuarios desde el panel
+
+/*
+
+LOAD DATA INFILE 'C:\Users\mcipponeri\Desktop\mariano\guithub\proyecto_coderh_mcipponeri\insumos\bases_finales\usuarios_sample.csv'
+INTO TABLE usuarios
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SET GLOBAL local_infile = 1;
+
+-- SHOW VARIABLES LIKE 'local_infile';usuarios
+
+-- SHOW GLOBAL VARIABLES LIKE 'local_infile';
+
+*/
+
+SELECT * FROM usuarios;
+
+/*
 
 -- Se inserta una muestra de pocos usuarios (los datos se importaran de un csv más adelante)
 
@@ -106,6 +131,7 @@ INSERT INTO usuarios(id_usuario,id_genero,edad_usuario,fecha_alta,hora_alta) VAL
 
 Select * from usuarios;
 
+*/
 
 -- COMUNA:
 
@@ -708,6 +734,8 @@ CREATE TABLE IF NOT EXISTS recorridos (
 
 -- Se genera una muestra de 100 registros de recorridos (más adelante se importarán desde un csv)
 
+/*
+
 INSERT INTO recorridos(id_recorrido,id_usuario,id_estacion_orig,id_mes,
 	fecha_origen,id_estacion_dest,fecha_dest,id_modelo,calificacion,id_precio) VALUES
     (20428222,992557,513,1,'2024-01-23 18:36:00',498,'2024-01-23 18:45:28',1,8,1),
@@ -805,8 +833,13 @@ INSERT INTO recorridos(id_recorrido,id_usuario,id_estacion_orig,id_mes,
 (20430993,958388,56,1,'2024-01-23 21:16:30',369,'2024-01-23 21:54:14',2,5,1),
 (20425214,958388,369,1,'2024-01-23 15:52:46',418,'2024-01-23 16:21:28',1,7,1);
 
+*/
  
 SELECT * FROM recorridos;
 
+SELECT COUNT(*) AS total_filas
+FROM recorridos;
 
 
+
+select * from estaciones;

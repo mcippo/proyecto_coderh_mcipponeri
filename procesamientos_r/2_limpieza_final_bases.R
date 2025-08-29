@@ -13,10 +13,67 @@ library(janitor)
 
 # Comparación base usuarios y recorridos:
 
-recorridos <- read.csv("insumos/recorridos.csv")
+recorridos <- read.csv("insumos/recorridos.csv") 
+
+# Chequeos de NA:
+
+sum(is.na(recorridos$id_recorrido))
+sum(is.na(recorridos$id_usuario))
+sum(is.na(recorridos$id_estacion_orig))
+sum(is.na(recorridos$id_mes))
+sum(is.na(recorridos$fecha_origen))
+sum(is.na(recorridos$id_estacion_dest))
+sum(is.na(recorridos$fecha_dest))
+sum(is.na(recorridos$id_modelo))
+sum(is.na(recorridos$calificacion))
+sum(is.na(recorridos$id_precio))
 
 
-usuarios <- read.csv("insumos/usuarios.csv")
+# Usuarios:
+
+usuarios <- read.csv("insumos/usuarios.csv") %>% 
+  select(id_usuario,id_genero,edad_usuario,fecha_alta,hora_alta)
+
+# Chequeo de NA
+
+sum(is.na(usuarios$id_usuario))
+sum(is.na(usuarios$id_genero))
+sum(is.na(usuarios$edad_usuario))
+sum(is.na(usuarios$fecha_alta))
+sum(is.na(usuarios$hora_alta))
+
+# Correción de NAs en id_genero
+
+
+table(usuarios$id_genero)
+
+usuarios <- usuarios %>% 
+  mutate(id_genero=ifelse(is.na(id_genero),3,id_genero))
+
+table(usuarios$id_genero)
+
+sum(is.na(usuarios$id_genero))
+
+# Para ver cuántos casos tiene AM PM en la hora de alta:
+
+chequeo <- usuarios %>%
+  filter(str_detect(hora_alta, "AM|PM"))
+
+# Corrección hora:
+
+usuarios <- usuarios %>%
+  mutate(hora_alta = sub(" ?(AM|PM)$", "", hora_alta, ignore.case = TRUE))
+
+# Esto tiene que dar 0:
+
+
+chequeo <- usuarios %>%
+  filter(str_detect(hora_alta, "AM|PM"))
+
+rm(chequeo)
+
+# Se comienza con los macheos
+
 
 lista_usuarios <- usuarios %>% select(id_usuario) %>% 
   mutate(asigna=1)
@@ -100,6 +157,9 @@ recorridos_sample <- recorridos_sample %>%
 
 
 table(recorridos_sample$filtro)
+
+recorridos_sample <- recorridos_sample %>%
+  select(-filtro)
 
 # Se guarda el sample de los recorridos
 
