@@ -30,6 +30,7 @@ edad_usuario INT NOT NULL,
 fecha_alta DATE NOT NULL,
 hora_alta TIME); 
 
+
 -- Acá cargar la base de usuarios desde el panel
 
 /*
@@ -667,6 +668,7 @@ INSERT INTO modelo(id_modelo,modelo) VALUES
 	(1,"fit"),
     (2,"iconic");
     
+    
 
  -- Se genera la tabla meses:
   
@@ -731,6 +733,7 @@ CREATE TABLE IF NOT EXISTS recorridos (
     FOREIGN KEY (id_modelo) REFERENCES modelo(id_modelo),
     FOREIGN KEY (id_precio) REFERENCES precios(id_precio)
 );
+
 
 -- Se genera una muestra de 100 registros de recorridos (más adelante se importarán desde un csv)
 
