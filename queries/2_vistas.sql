@@ -68,3 +68,96 @@ ORDER BY FIELD(grupo_etario, 'menores de 17',
 'entre 51 y 64',
 'Mayores de 65');
 
+-- Calificación del recorrido según tipo de bici utilizada
+
+CREATE VIEW vista_calificaciones_modelo AS
+SELECT m.modelo, AVG(r.calificacion) AS calificacion_promedio
+FROM recorridos r
+JOIN modelo m ON r.id_modelo = m.id_modelo
+GROUP BY m.id_modelo
+ORDER BY m.id_modelo;
+
+-- Calificación del recorrido según barrio
+
+SELECT m.modelo, AVG(r.calificacion) AS calificacion_promedio
+FROM recorridos r
+JOIN modelo m ON r.id_modelo = m.id_modelo
+GROUP BY m.id_modelo
+ORDER BY m.id_modelo;
+
+
+-- Cantidad de recorridos por barrio
+
+SELECT b.nombre_barrio AS barrio, AVG(r.calificacion) AS calificacion_promedio
+FROM recorridos r
+JOIN estaciones e ON r.id_estacion_orig = e.id_estacion
+JOIN barrio b ON e.id_barrio = b.id_barrio
+GROUP BY b.nombre_barrio
+ORDER BY calificacion_promedio DESC;
+
+-- Calificación por estación:
+
+SELECT e.nombre AS nombre_estacion, AVG(r.calificacion) AS calificacion_promedio
+FROM recorridos r
+JOIN estaciones e ON r.id_estacion_orig = e.id_estacion
+GROUP BY e.id_estacion
+ORDER BY calificacion_promedio DESC;
+
+-- Cantidad de recorridos por estación
+
+SELECT e.nombre AS nombre_estacion, count(r.id_recorrido) AS cantidad_recorridos
+FROM recorridos r
+JOIN estaciones e ON r.id_estacion_orig = e.id_estacion
+GROUP BY nombre_estacion
+ORDER BY cantidad_recorridos DESC;
+
+-- Estación con más recorridos
+
+SELECT e.nombre AS nombre_estacion, count(r.id_recorrido) AS cantidad_recorridos
+FROM recorridos r
+JOIN estaciones e ON r.id_estacion_orig = e.id_estacion
+GROUP BY nombre_estacion
+ORDER BY cantidad_recorridos DESC
+LIMIT 1;
+
+-- Cantidad de usuarios por sexo
+
+SELECT g.genero_usuario AS genero, count(u.id_usuario) AS cantidad_usuarios
+FROM usuarios u 
+JOIN genero g ON u.id_genero = g.id_genero
+GROUP BY genero
+ORDER BY cantidad_usuarios;
+
+-- Cantidad de usuarios por grupo de edad
+
+SELECT g.genero_usuario AS genero, count(u.id_usuario) AS cantidad_usuarios
+FROM usuarios u 
+JOIN genero g ON u.id_genero = g.id_genero
+GROUP BY genero
+ORDER BY cantidad_usuarios;
+
+-- Ingresos que se podrían haber generado por pagar el servicio
+
+SELECT SUM(p.precio) AS gasto_total
+FROM recorridos r
+JOIN precios p ON r.id_precio = p.id_precio;
+
+-- Ingresos generados por estación
+
+SELECT e.nombre AS nombre_estacion, SUM(p.precio) AS gasto_total
+FROM recorridos r
+JOIN estaciones e  ON r.id_estacion_orig = e.id_estacion
+JOIN precios p ON r.id_precio = p.id_precio
+GROUP BY nombre_estacion;
+
+-- Kilómetros recorridos por estación
+
+-- Kilometros recorridos por Sexo
+
+-- Kilómetros recorridos por edad
+
+-- Duración promedio del recorrido
+
+-- Duración promedio por sexo
+
+-- Duración promedio por edad
