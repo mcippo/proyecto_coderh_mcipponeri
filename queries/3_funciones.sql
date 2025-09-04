@@ -1,3 +1,6 @@
+
+-- sumar población del barrio dividido usuarios y rankear el barrio con mayor relación 
+
 -- duracion promedio, esto debería funcionar bien de una
 
 DELIMITER $$

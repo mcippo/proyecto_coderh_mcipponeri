@@ -1,0 +1,29 @@
+Con estos ejercicios podran practicar funciones con parametros y condiciones
+Procedimientos con parametos y selects
+uso de variables con DECLARE y SELECT ... INTO
+
+
+Resolver con la base de datos biblioteca. En el caso que lo resuelvan bien y una parte de las condiciones no muestra el camino distinto de una condicion por ejemplo. Pensar que habria que modificar de la base de datos para visualizarlo bien.
+
+Funciones:
+
+Ejercicio 1
+
+Crear una función que reciba el ID de un cliente y devuelva la cantidad total de préstamos que ha realizado.
+
+Ejercicio 2
+
+Crear una función que reciba el ID de un libro y devuelva 'Disponible' si la cantidad es mayor a 0, o 'Agotado' si es 0.
+
+-----------------------------------------------------------------------------------------
+
+Stored Procedures
+
+Ejercicio 3
+
+Crear un procedimiento que reciba un ID de género y devuelva todos los libros de ese género, junto con su autor.
+
+Ejercicio 4
+
+Crear un procedimiento que reciba un ID de cliente y devuelva su última fecha de préstamo.
+Si el cliente no tiene préstamos, devolver 'Sin préstamos'.
