@@ -1,7 +1,7 @@
 
 use ecobici;
 
--- Store procedure para dentros los barrios, la comuna a la que pertenecen, la estación, la dirección de la misma
+-- 1) Objetivo: identificar a las estaciones que se encuentran en cada barrio
 
 
 DELIMITER $$
@@ -29,7 +29,39 @@ CALL estaciones_por_barrio(48);
 select * FROM barrio;
 
 
--- Otro SP puede ser las características de los recorridos de cada usuario
+-- 2) Objetivo: identificar recorridos realizados por cada usuario
+
+DELIMITER $$
+
+CREATE PROCEDURE recorridos_usuario (IN p_id_usuario INT)
+BEGIN
+    SELECT 
+		u.id_usuario AS usuario,
+        g.genero_usuario AS genero,
+        u.edad_usuario AS edad,
+        r.fecha_origen AS fecha,
+        e.nombre AS estacion,
+        b.nombre_barrio AS barrio,
+        c.nombre_comuna AS comuna,
+        e.direccion,
+        r.calificacion
+    FROM recorridos r
+    INNER JOIN usuarios u ON r.id_usuario = u.id_usuario
+    INNER JOIN genero g ON u.id_genero = g.id_genero
+    INNER JOIN estaciones e ON r.id_estacion_orig = e.id_estacion
+    INNER JOIN barrio b ON e.id_barrio = b.id_barrio
+    INNER JOIN comuna c ON b.id_comuna = c.id_comuna
+    WHERE u.id_usuario = p_id_usuario
+    ORDER BY r.fecha_origen;
+END$$
+
+DELIMITER ;
+
+-- Ejemplo de uso del con el id de usuario 4143:
+
+CALL recorridos_usuario(4143);
+
+
 
 
 

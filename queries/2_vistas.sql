@@ -77,6 +77,8 @@ JOIN modelo m ON r.id_modelo = m.id_modelo
 GROUP BY m.id_modelo
 ORDER BY m.id_modelo;
 
+SELECT * FROM vista_calificaciones_modelo;
+
 -- Calificación del recorrido según barrio
 
 SELECT m.modelo, AVG(r.calificacion) AS calificacion_promedio
