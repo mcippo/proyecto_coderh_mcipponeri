@@ -1,9 +1,6 @@
 use ecobici;
 
-
--- sumar población del barrio dividido usuarios y rankear el barrio con mayor relación 
-
--- duracion promedio, esto debería funcionar bien de una
+-- 1) Duración en minutos del recorrido
 
 DELIMITER $$
 
@@ -17,7 +14,7 @@ END $$
 
 DELIMITER ;
 
--- Utilización:
+-- Primer ejemplo de utilización de la función:
 
 SELECT 
     id_recorrido,
@@ -26,7 +23,7 @@ SELECT
     dif_tiempo_minutos(fecha_origen, fecha_dest) AS minutos
 FROM recorridos;
 
--- Cálculo de los minutos recorridos por sexo con la función
+-- Segundo ejemplo de uso de la función (considerando la variable sexo):
 
 SELECT 
     g.genero_usuario AS sexo,
@@ -56,10 +53,12 @@ END $$
 
 DELIMITER ;
 
+-- Ejemplo de uso de la función:
+
 select calif_barrio(1);
 
 
-
+-- PROBAR GENERAR UNA TABLA CON LA COTIZACIÓN DEL DOLAR EN USD PARA QUE CALCULE EL PRECIO EN USD
 
 
 
@@ -230,3 +229,6 @@ DELIMITER ;
 SELECT total_consumo_usuario(4143) AS consumo_total;
 
 
+
+
+-- sumar población del barrio dividido usuarios y rankear el barrio con mayor relación 

@@ -169,6 +169,8 @@ Esta tabla se utilizará para etiquetar al campo _precio_ en las futuras consult
 | precio sugerido por el cobro del servicio  | precio | INT | - | 
 
 
+\pagebreak
+
  **RECORRIDOS:** 
 
 Esta tabla aportará información del _recorrido_, relacionándose con las tablas anteriormente descritas.
@@ -233,11 +235,120 @@ ACLARAR que se trabaja con una base de muestra, porque los registros son muchos.
 
 ## Descripción de las Vistas
 
+En esta segunda entrega, se presentan 13 vistas:
+
+  **1) vista_recorridos_x_edad:**
+  
+  _Objetivo:_ presentar una frecuencia de recorridos según edad de los usuarios
+  
+  _Tablas involucradas:_ recorridos; usuarios
+
+  **2) vista_recorridos_porc_getario:**
+  
+  _Objetivo:_ distribuir los recorridos por grupo etario, con absolutos y porcentajes
+  
+  _Tablas involucradas:_ recorridos; usuarios.
+
+  **3) vista_recorridos_porc_genero:**
+  
+  _Objetivo:_ distribuir los recorridos por genero, con absolutos y porcentajes
+  
+  _Tablas involucradas:_ recorridos; usuarios; genero.
+
+  **4) recorridos_porc_genero_edad:**
+  
+  _Objetivo:_ distribuir los recorridos por genero y edad, con absolutos y porcentajes
+  
+  _Tablas involucradas:_ recorridos; usuarios; genero.
+  
+  **5) vista_calificaciones_modelo:**
+  
+  _Objetivo:_ obtener la calificación promedio por cada tipo de modelo de bicicleta
+  
+  _Tablas involucradas:_ recorridos; modelo
+
+  **6) vista_calificacion_barrio:**
+  
+  _Objetivo:_ obtener la calificación promedio por barrio de origen del recorrido
+  
+  _Tablas involucradas:_ recorridos; estaciones; barrio
+
+  **7) vista_recorridos_x_est:**
+  
+  _Objetivo:_ obtener la cantidad de recorridos por estacion
+  
+  _Tablas involucradas:_ recorridos; estaciones
+  
+  **8) vista_recorridos_x_est:**
+  
+  _Objetivo:_ obtener la cantidad de recorridos por estacion
+  
+  _Tablas involucradas:_ recorridos; estaciones  
+
+  **9) vista_top_estacion:**
+  
+  _Objetivo:_ contener la estación con mayor cantidad de recorridos
+  
+  _Tablas involucradas:_ recorridos; estaciones  
+  
+  **10) vista_usuarios_genero:**
+  
+  _Objetivo:_ conocer la distribución de usuarios por genero
+  
+  _Tablas involucradas:_ usuarios; genero    
+  
+  **11) vista_usuarios_edad:**
+  
+  _Objetivo:_ conocer la distribución de usuarios por edad
+  
+  _Tablas involucradas:_ usuarios; genero    
+
+
+  **12) vista_ganancias:**
+  
+  _Objetivo:_ conocer los ingresos totales que podría haber generado el servicio
+  
+  _Tablas involucradas:_ recorridos; precio    
+
+  **13) vista_ingresos_est:**
+  
+  _Objetivo:_ conocer los ingresos totales que podría haber generado el servicio, según estación
+  
+  _Tablas involucradas:_ recorridos; estaciones; precio    
+
 
 ## Funciones
 
+En esta etapa del trabajo se generaron **dos funciones:**
+
+  **1) dif_tiempo_minutos:**
+  
+  _Objetivo:_ La tabla de recorridos ofrecida por el portal de datos abiertos de CABA ofrece una fecha de origen y una de destino (ambos campos con una precisión de fecha, hora, minutos y segundos). La función generada permite **conocer la duración en minutos de cada recorrido.**
+  
+  _Tablas involucradas:_ recorridos
+  
+**2) dif_tiempo_minutos:**
+  
+  _Objetivo:_ Al calcular el promedio de calificaciones otorgadas a cada barrio, esta función **permite realizar un monitoreo de la calidad del servicio ofrecido por cada barrio.**
+  
+  _Tablas involucradas:_ recorridos; estaciones; barrios
+  
 
 ## Store Procedures
+
+Se presentan, por el momento, dos Store Procedures:
+
+**1) estaciones_por_barrio:**
+  
+  _Objetivo:_ Ofrecer un listado de estaciones por cada barrio, seleccionando a cada barrio por su id_barrio devuelve el nombre del barrio, la comuna a la que pertenece, el nombre de cada estación y la dirección.
+  
+  _Tablas involucradas:_ estaciones; barrios; comunas
+
+**2) recorridos_usuario:**
+  
+  _Objetivo:_ Listar los recorridos realizados por cada usuarios. La selección de cada usuario (a partir de su id) arroja una tabla con las principales características de los recorridos realizados (fecha de inicio de viaje, estación de origen, barrio, comuna, dirección y calificación otorgada).
+  
+  _Tablas involucradas:_ recorridos;usuarios; genero; estaciones; barrio; comuna
 
 
 ## Triggers

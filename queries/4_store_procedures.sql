@@ -3,7 +3,6 @@ use ecobici;
 
 -- 1) Objetivo: identificar a las estaciones que se encuentran en cada barrio
 
-
 DELIMITER $$
 
 CREATE PROCEDURE estaciones_por_barrio (IN p_id_barrio INT)
@@ -24,12 +23,9 @@ DELIMITER ;
 
 -- Ejemplo para el barrio Belgrano (id 5), los id de los barrios barrios van del 1 al 48
 
-CALL estaciones_por_barrio(48);
+CALL estaciones_por_barrio(5);
 
-select * FROM barrio;
-
-
--- 2) Objetivo: identificar recorridos realizados por cada usuario
+-- 2) Identificación de recorridos por usuarios
 
 DELIMITER $$
 
@@ -57,7 +53,7 @@ END$$
 
 DELIMITER ;
 
--- Ejemplo de uso del con el id de usuario 4143:
+-- Ejemplo de uso del SP con el id de usuario 4143:
 
 CALL recorridos_usuario(4143);
 

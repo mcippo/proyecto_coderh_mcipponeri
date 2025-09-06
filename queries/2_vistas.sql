@@ -2,7 +2,7 @@ USE ecobici;
 
 -- 1) Distribución de los recorridos según edad
 
-CREATE VIEW recorridos_x_edad AS
+CREATE VIEW vista_recorridos_x_edad AS
 SELECT u.edad_usuario, COUNT(r.id_usuario) AS total_recorridos
 FROM recorridos r
 JOIN usuarios u ON r.id_usuario = u.id_usuario
@@ -11,12 +11,12 @@ ORDER BY u.edad_usuario;
 
 -- Ejemplo de uso
 
-SELECT * FROM recorridos_x_edad;
+SELECT * FROM vista_recorridos_x_edad;
 
 
 -- 2) Distribución porcentual de los recorridos según grupo etario:
 
-CREATE VIEW recorridos_porc_getario AS
+CREATE VIEW vista_recorridos_porc_getario AS
 SELECT 
     CASE 
         WHEN u.edad_usuario BETWEEN 0 AND 17 THEN 'menores de 17'
@@ -40,11 +40,11 @@ ORDER BY FIELD(grupo_etario, 'menores de 17',
 
 -- Ejemplo de uso
 
-SELECT * FROM recorridos_porc_getario;
+SELECT * FROM vista_recorridos_porc_getario;
 
 -- 3) Distribución porcentual por genero:
 
-CREATE VIEW recorridos_porc_genero AS
+CREATE VIEW vista_recorridos_porc_genero AS
 SELECT 
     g.genero_usuario AS sexo,
     COUNT(r.id_recorrido) AS total_recorridos,
@@ -56,11 +56,11 @@ GROUP BY g.genero_usuario;
 
 -- Ejemplo de uso
 
-SELECT * FROM recorridos_porc_genero;
+SELECT * FROM vista_recorridos_porc_genero;
 
 -- 4) Distribución porcentual de los recorridos por edad y sexo:
 
-CREATE VIEW recorridos_porc_genero_edad AS
+CREATE VIEW vista_recorridos_porc_genero_edad AS
 SELECT CASE 
         WHEN u.edad_usuario BETWEEN 0 AND 17 THEN 'menores de 17'
         WHEN u.edad_usuario BETWEEN 18 AND 25 THEN 'entre 18 y 25'
@@ -85,7 +85,7 @@ ORDER BY FIELD(grupo_etario, 'menores de 17',
 
 -- Ejemplo de uso
 
-SELECT * FROM recorridos_porc_genero_edad;
+SELECT * FROM vista_recorridos_porc_genero_edad;
 
 -- 5) Calificación del recorrido según tipo de bici utilizada
 
@@ -157,7 +157,6 @@ SELECT * FROM vista_top_estacion;
 
 -- 10) Cantidad de usuarios por sexo
 
-
 CREATE VIEW vista_usuarios_genero AS
 SELECT g.genero_usuario AS genero, count(u.id_usuario) AS cantidad_usuarios
 FROM usuarios u 
@@ -171,16 +170,16 @@ SELECT * FROM vista_usuarios_genero;
 
 -- 11) Usuarios por grupo de edad
 
-CREATE VIEW vista_usuarios_getario AS
+CREATE VIEW vista_usuarios_edad AS
 SELECT g.genero_usuario AS genero, count(u.id_usuario) AS cantidad_usuarios
 FROM usuarios u 
 JOIN genero g ON u.id_genero = g.id_genero
 GROUP BY genero
-ORDER BY cantidad_usuarios;
+ORDER BY cantidad_usuarios DESC;
 
 -- Ejemplo de uso:
 
-SELECT * FROM vista_usuarios_getario;
+SELECT * FROM vista_usuarios_edad;
 
 -- 12) Ingresos que se podrían haber generado por pagar el servicio
 
