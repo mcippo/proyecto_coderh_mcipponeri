@@ -36,11 +36,48 @@ JOIN usuarios u ON r.id_usuario = u.id_usuario
 JOIN genero g ON u.id_genero = g.id_genero
 GROUP BY g.genero_usuario;
 
+-- 2) Calificación promedio otorgada a los recorridos según Barrio de origen:
+
+DELIMITER $$
+
+CREATE FUNCTION calif_barrio(f_id_barrio INT)
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+  DECLARE promedio DECIMAL(10,2);
+  SELECT IFNULL(AVG(r.calificacion), 0)
+  INTO promedio
+  FROM recorridos r
+  INNER JOIN estaciones e ON r.id_estacion = e.id_estacion
+  INNER JOIN barrios b ON e.id_barrio = b.id_barrio
+  WHERE b.id_barrio = f_id_barrio;
+  RETURN promedio;
+END $$
+
+DELIMITER ;
+
+select calif_barrio(1);
+
+
+
+
+
+
+
+-- Uso de la funcions
+
+
+
+
+
+
+
+
 -- Calculo del precio en dolares
 
 DELIMITER $$
 
-CREATE FUNCTION precio_dolares(id_prec INT, fecha DATETIME)
+CREATE FUNCTION precio_dolrecorridosares(id_prec INT, fecha DATETIME)
 RETURNS DECIMAL(10,2)
 DETERMINISTIC
 BEGIN
@@ -165,4 +202,31 @@ JOIN sexo s ON u.id_sexo = s.id_sexo
 JOIN estaciones eo ON r.id_estacion_origen = eo.id_estacion
 JOIN estaciones ed ON r.id_estacion_destino = ed.id_estacion
 GROUP BY s.descripcion;
+
+
+-- 2) Función para calcular gasto ttoal por usuario
+
+DELIMITER $$
+
+CREATE FUNCTION total_consumo_usuario(p_id_usuario INT)
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+    DECLARE total DECIMAL(10,2);
+
+    SELECT SUM(p.precio)
+    INTO total
+    FROM recorridos r
+    INNER JOIN precios p ON r.id_precio = p.id_precio
+    WHERE r.id_usuario = p_id_usuario;
+
+    RETURN total; -- Si no hay consumos, devuelve 0
+END$$
+
+DELIMITER ;
+
+-- Uso de la función: 
+
+SELECT total_consumo_usuario(4143) AS consumo_total;
+
 
