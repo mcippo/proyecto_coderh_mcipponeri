@@ -4,5 +4,4 @@
 **/*.sav
 **/*.rds
 **/*.geojson
-**/*.zip
 .Rproj.user

@@ -231,7 +231,11 @@ knitr::include_graphics("der.png")
 
 En esta segunda entrega se presentarán las primeras **Vistas**, **Funciones**, **Store Procedures** y **Triggers**; los cuales fueron elaborados con el fin de satisfacer los objetivos propuestos en la primera entrega. Tal como se aclaró en la misma, los resultados son preliminares y se espera expandir la cantidad de los productos entregados en la entrega final.
 
-ACLARAR que se trabaja con una base de muestra, porque los registros son muchos.
+
+## Las bases de datos utilizadas
+
+
+
 
 ## Descripción de las Vistas
 
