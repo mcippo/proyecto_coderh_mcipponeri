@@ -321,13 +321,13 @@ En esta segunda entrega, se presentan 13 vistas:
 
 En esta etapa del trabajo se generaron **dos funciones:**
 
-  **1) dif_tiempo_minutos:**
+  **1) fn_dif_tiempo_minutos:**
   
   _Objetivo:_ La tabla de recorridos ofrecida por el portal de datos abiertos de CABA ofrece una fecha de origen y una de destino (ambos campos con una precisión de fecha, hora, minutos y segundos). La función generada permite **conocer la duración en minutos de cada recorrido.**
   
   _Tablas involucradas:_ recorridos
   
-**2) dif_tiempo_minutos:**
+**2) fn_dif_tiempo_minutos:**
   
   _Objetivo:_ Al calcular el promedio de calificaciones otorgadas a cada barrio, esta función **permite realizar un monitoreo de la calidad del servicio ofrecido por cada barrio.**
   
@@ -353,7 +353,22 @@ Se presentan, por el momento, dos Store Procedures:
 
 ## Triggers
 
+El sistema de Ecobicis es dinámico, constantemente se van sumando nuevos usuarios al sistema (y se van descartando los usuarios que no respetan las reglas de uso de las bicicletas -tiempos de viaje excesivos o daños a las unidades). 
 
+Por estos motivos, es necesario generar triggers que registren las altas y bajas de usuarios del sistema.
 
+Con ese fin se generaron dos triggers:
 
+  **-tr_auditoria_usuarios** 
+  
+  **-tr_auditoria_usuarios_eliminados**
 
+Estos triggers hacen que se registren en la tabla _auditoria_usuarios_ el id_usuario, id_genero, edad del usuario, fecha y hora de modificacion (del alta o baja), el usuario (data entry) que realizó el alta/baja y un comentario en el que se aclara si se realizó un alta o una baja.
+
+Algo similar sucede con las estaciones, el GCBA preveé la incorporación de nuevas estaciones y la baja de las estaciones que no registren una cantidad significativa de recorridos. Entonces, se agregó al esquema los siguientes triggers...
+
+  **-tr_auditoria_estaciones** 
+  
+  **-tr_auditoria_estaciones_eliminadas**
+
+... que registran en la tabla _auditoria_estaciones_ el id_estacion, nombre, dirección, fecha y hora de alta/baja, el data entry qye realizó la acción y el comentario que especifica si se trata de un alta o una baja.

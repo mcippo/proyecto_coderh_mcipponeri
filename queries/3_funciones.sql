@@ -4,7 +4,7 @@ use ecobici;
 
 DELIMITER $$
 
-CREATE FUNCTION dif_tiempo_minutos(fecha_origen DATETIME, fecha_dest DATETIME)
+CREATE FUNCTION fn_dif_tiempo_minutos(fecha_origen DATETIME, fecha_dest DATETIME)
 RETURNS INT
 DETERMINISTIC
 BEGIN
@@ -20,14 +20,14 @@ SELECT
     id_recorrido,
     fecha_origen,
     fecha_dest,
-    dif_tiempo_minutos(fecha_origen, fecha_dest) AS minutos
+    fn_dif_tiempo_minutos(fecha_origen, fecha_dest) AS minutos
 FROM recorridos;
 
 -- Segundo ejemplo de uso de la función (considerando la variable sexo):
 
 SELECT 
     g.genero_usuario AS sexo,
-    AVG(dif_tiempo_minutos(r.fecha_origen, r.fecha_dest)) AS promedio_minutos
+    AVG(fn_dif_tiempo_minutos(r.fecha_origen, r.fecha_dest)) AS promedio_minutos
 FROM recorridos r
 JOIN usuarios u ON r.id_usuario = u.id_usuario
 JOIN genero g ON u.id_genero = g.id_genero
@@ -37,7 +37,7 @@ GROUP BY g.genero_usuario;
 
 DELIMITER $$
 
-CREATE FUNCTION calif_barrio(f_id_barrio INT)
+CREATE FUNCTION fn_calif_barrio(f_id_barrio INT)
 RETURNS DECIMAL(10,2)
 DETERMINISTIC
 BEGIN
@@ -45,8 +45,8 @@ BEGIN
   SELECT IFNULL(AVG(r.calificacion), 0)
   INTO promedio
   FROM recorridos r
-  INNER JOIN estaciones e ON r.id_estacion = e.id_estacion
-  INNER JOIN barrios b ON e.id_barrio = b.id_barrio
+  INNER JOIN estaciones e ON r.id_estacion_orig = e.id_estacion
+  INNER JOIN barrio b ON e.id_barrio = b.id_barrio
   WHERE b.id_barrio = f_id_barrio;
   RETURN promedio;
 END $$
@@ -55,7 +55,9 @@ DELIMITER ;
 
 -- Ejemplo de uso de la función:
 
-select calif_barrio(1);
+select fn_calif_barrio(3);
+
+
 
 
 -- PROBAR GENERAR UNA TABLA CON LA COTIZACIÓN DEL DOLAR EN USD PARA QUE CALCULE EL PRECIO EN USD
