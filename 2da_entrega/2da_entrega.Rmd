@@ -1,8 +1,8 @@
 ---
 title: "**SISTEMA DE ECOBICI EN CABA: Funcionamiento y Mejoras Potenciales**"
 author: |
-  Docentes: Leonardo Lo Presti, Jennifer Goldfeld 
-  Alumno: Mariano Cipponeri
+  | Docentes:Leonardo Lo Presti, Jennifer Goldfeld 
+  | Alumno: Mariano Cipponeri
 date: '09-09-2025'
 output:
   pdf_document:
@@ -237,13 +237,13 @@ El query generado para la primera entrega (query _1_tabla_relaciones_) permitía
 
 Luego de correr ese query, se deben cargar las dos bases comprimidas de recorridos y usuarios **(en la carpeta bases_2da_entrega del repositorio).**
 
-Con respecto a esas bases, se debe aclarar que no son bases completas, dada la cantidad de registros de las mismas (la base completa de usuarios tiene un total de  casos, mientras que el total de registros en la base de recorridos del 2024 asciende a ) se realizaron dos bases de muestra, que serán de utilidad para comprobar el buen funcionamiento de las tablas, relaciones, vistas, funciones, store procedures y triggers propuestos.
+Con respecto a esas bases, se debe aclarar que no son bases completas, dada la cantidad de registros de las mismas (la base completa de usuarios tiene **un total de 247 mil casos**, mientras que el total de registros en la base de recorridos del 2024 **asciende a 3.31 millones**) se realizaron dos bases de muestra, que serán de utilidad para comprobar el buen funcionamiento de las tablas, relaciones, vistas, funciones, store procedures y triggers propuestos.
 
 Para importar las dos tablas se **utilizó el asistente gráfico de MySQL Workbench** (se debe hacer click derecho sobre la tabla usuarios/recorridos; poner "table data import wizard"; abrir las bases descomprimidas; poner "use existing table" y seleccionar ecobici.usuarios/ecobici.recorridos; clickear "next" en las dos ventanas que emergen).
 
 ## Descripción de las Vistas
 
-En esta segunda entrega, se presentan 13 vistas:
+En esta segunda entrega, se presentan 14 vistas:
 
   **1) vista_recorridos_x_edad:**
   
@@ -387,3 +387,4 @@ Algo similar sucede con las estaciones, el GCBA preveé la incorporación de nue
   **-tr_auditoria_estaciones_eliminadas**
 
 ... que registran en la tabla _auditoria_estaciones_ el id_estacion, nombre, dirección, fecha y hora de alta/baja, el data entry qye realizó la acción y el comentario que especifica si se trata de un alta o una baja.
+

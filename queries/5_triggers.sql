@@ -41,8 +41,6 @@ INSERT INTO estaciones (id_estacion, nombre, direccion,
 
 -- Se genera el trigger:
 
-drop trigger tr_auditoria_estaciones_eliminadas;
-
 CREATE TRIGGER tr_auditoria_estaciones_eliminadas
 BEFORE DELETE ON estaciones
 FOR EACH ROW
@@ -93,8 +91,6 @@ VALUES (2000005, 2, 30, CURRENT_DATE, CURRENT_TIME);
 SELECT * FROM auditoria_usuarios;
 
 -- 2b) Trigger para registrar los usuarios dados de baja:
-
-drop trigger tr_auditoria_usuarios_eliminados;
 
 -- Se genera el trigger
 
