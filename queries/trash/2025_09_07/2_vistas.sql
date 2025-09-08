@@ -13,6 +13,7 @@ ORDER BY u.edad_usuario;
 
 SELECT * FROM vista_recorridos_x_edad;
 
+
 -- 2) Distribución porcentual de los recorridos según grupo etario:
 
 CREATE VIEW vista_recorridos_porc_getario AS
@@ -204,22 +205,16 @@ GROUP BY nombre_estacion;
 
 SELECT * FROM vista_ingresos_est;
 
--- 14) Kilómetros por recorrido
+-- VER DESPUES:
 
-CREATE VIEW vista_km_x_reco AS
-SELECT 
-    r.id_recorrido,
-    eo.id_estacion AS estacion_origen,
-    ed.id_estacion AS estacion_destino,
-    (6371 * ACOS(
-        COS(RADIANS(eo.latitud)) 
-        * COS(RADIANS(ed.latitud)) 
-        * COS(RADIANS(ed.longitud) - RADIANS(eo.longitud)) 
-        + SIN(RADIANS(eo.latitud)) 
-        * SIN(RADIANS(ed.latitud))
-    )) AS distancia_km
-FROM recorridos r
-JOIN estaciones eo ON r.id_estacion_orig = eo.id_estacion
-JOIN estaciones ed ON r.id_estacion_dest = ed.id_estacion;
+-- Kilómetros recorridos por estación
 
-SELECT * FROM vista_km_x_reco;
+-- Kilometros recorridos por Sexo
+
+-- Kilómetros recorridos por edad
+
+-- Duración promedio del recorrido
+
+-- Duración promedio por sexo
+
+-- Duración promedio por edad

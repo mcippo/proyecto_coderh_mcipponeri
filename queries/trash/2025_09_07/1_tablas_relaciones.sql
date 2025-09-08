@@ -2,6 +2,8 @@
 
 CREATE DATABASE IF NOT EXISTS ecobici;
 
+DROP database ecobici;
+
 USE ecobici;
  
 -- Tabla género:
@@ -27,6 +29,28 @@ id_genero INT  NOT NULL,
 edad_usuario INT NOT NULL,
 fecha_alta DATE NOT NULL,
 hora_alta TIME); 
+
+
+-- Acá cargar la base de usuarios desde el panel
+
+/*
+
+LOAD DATA INFILE 'C:\Users\mcipponeri\Desktop\mariano\guithub\proyecto_coderh_mcipponeri\insumos\bases_finales\usuarios_sample.csv'
+INTO TABLE usuarios
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SET GLOBAL local_infile = 1;
+
+-- SHOW VARIABLES LIKE 'local_infile';usuarios
+
+-- SHOW GLOBAL VARIABLES LIKE 'local_infile';
+
+*/
+
+SELECT * FROM usuarios;
 
 
 -- COMUNA:
@@ -563,6 +587,8 @@ INSERT INTO modelo(id_modelo,modelo) VALUES
 	(1,"fit"),
     (2,"iconic");
     
+    
+
  -- Se genera la tabla meses:
   
 CREATE TABLE IF NOT EXISTS meses(
@@ -584,6 +610,7 @@ INSERT INTO meses(id_mes,mes) VALUES
     (12,"Diciembre");
     
  
+ 
  -- Se genera la tabla con el listado de precios por mes (cada id de precios corresponde a un mes 1=enero,2=febrero...):
   
 CREATE TABLE IF NOT EXISTS precios(
@@ -603,6 +630,7 @@ INSERT INTO precios(id_precio,precio) VALUES
     (10,1200),
     (11,1300),
     (12,1400);
+    
  
 -- Se genera una primera tabla la tabla con los recorridoss:
 
@@ -625,3 +653,5 @@ CREATE TABLE IF NOT EXISTS recorridos (
     FOREIGN KEY (id_precio) REFERENCES precios(id_precio)
 );
 
+
+SELECT * FROM recorridos;

@@ -229,13 +229,17 @@ knitr::include_graphics("der.png")
  
 # SEGUNDA ENTREGA
 
-En esta segunda entrega se presentarán las primeras **Vistas**, **Funciones**, **Store Procedures** y **Triggers**; los cuales fueron elaborados con el fin de satisfacer los objetivos propuestos en la primera entrega. Tal como se aclaró en la misma, los resultados son preliminares y se espera expandir la cantidad de los productos entregados en la entrega final.
-
+En esta segunda entrega se presentarán las primeras **Vistas**, **Funciones**, **Store Procedures** y **Triggers**; los cuales fueron elaborados con el fin de satisfacer los objetivos propuestos en la primera entrega. Tal como se aclaró en la misma, los resultados son preliminares y **se espera expandir la cantidad de productos entregados en la entrega final.**
 
 ## Las bases de datos utilizadas
 
+El query generado para la primera entrega (query _1_tabla_relaciones_) permitía generar las tablas del esquema junto con las relaciones entre las mismas . 
 
+Luego de correr ese query, se deben cargar las dos bases comprimidas de recorridos y usuarios **(en la carpeta bases_2da_entrega del repositorio).**
 
+Con respecto a esas bases, se debe aclarar que no son bases completas, dada la cantidad de registros de las mismas (la base completa de usuarios tiene un total de  casos, mientras que el total de registros en la base de recorridos del 2024 asciende a ) se realizaron dos bases de muestra, que serán de utilidad para comprobar el buen funcionamiento de las tablas, relaciones, vistas, funciones, store procedures y triggers propuestos.
+
+Para importar las dos tablas se **utilizó el asistente gráfico de MySQL Workbench** (se debe hacer click derecho sobre la tabla usuarios/recorridos; poner "table data import wizard"; abrir las bases descomprimidas; poner "use existing table" y seleccionar ecobici.usuarios/ecobici.recorridos; clickear "next" en las dos ventanas que emergen).
 
 ## Descripción de las Vistas
 
@@ -319,6 +323,13 @@ En esta segunda entrega, se presentan 13 vistas:
   _Objetivo:_ conocer los ingresos totales que podría haber generado el servicio, según estación
   
   _Tablas involucradas:_ recorridos; estaciones; precio    
+
+  **14) vista_km_x_reco:**
+  
+  _Objetivo:_ conocer la cantidad de kilómetros por recorrido (utilizando el dato de latitud y longitud de las estaciones de origen y destino).
+  
+  _Tablas involucradas:_ recorridos; estaciones    
+
 
 
 ## Funciones
