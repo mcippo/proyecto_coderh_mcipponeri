@@ -1,9 +1,9 @@
 ---
 title: "**SISTEMA DE ECOBICI EN CABA: Funcionamiento y Mejoras Potenciales**"
 author: |
-  | Docentes:Leonardo Lo Presti, Jennifer Goldfeld 
+  | Docentes: Leonardo Lo Presti, Jennifer Goldfeld 
   | Alumno: Mariano Cipponeri
-date: '09-09-2025'
+date: '08-09-2025'
 output:
   pdf_document:
     toc: true
@@ -178,7 +178,7 @@ Esta tabla aportará información del _recorrido_, relacionándose con las tabla
 
 | Nombre Campo  | Abreviatura | Tipo de datos | Tipo de clave  |
 |:--------------|:-----------:|:-------------:|:--------------:|
-| id  del recorrido realizado | id_recorrido | INT AUTO INCREASE | PK|
+| id  del recorrido realizado | id_recorrido | INT | PK|
 | id del usuario  | id_usuario | INT | FK | 
 | id de la estacion de origen  | id_estacion_orig | INT |  FK     |
 | id del mes en que se produce el recorrido  | id_mes | INT |  FK     |
@@ -295,7 +295,7 @@ En esta segunda entrega, se presentan 14 vistas:
 
   **9) vista_top_estacion:**
   
-  _Objetivo:_ contener la estación con mayor cantidad de recorridos
+  _Objetivo:_ obtener la estación con mayor cantidad de recorridos
   
   _Tablas involucradas:_ recorridos; estaciones  
   
@@ -361,7 +361,7 @@ Se presentan, por el momento, dos Store Procedures:
 
 **2) recorridos_usuario:**
   
-  _Objetivo:_ Listar los recorridos realizados por cada usuarios. La selección de cada usuario (a partir de su id) arroja una tabla con las principales características de los recorridos realizados (fecha de inicio de viaje, estación de origen, barrio, comuna, dirección y calificación otorgada).
+  _Objetivo:_ Listar los recorridos realizados por cada usuario. La selección de cada usuario (a partir de su id) arroja una tabla con las principales características de los recorridos realizados (fecha de inicio de viaje, estación de origen, barrio, comuna, dirección y calificación otorgada).
   
   _Tablas involucradas:_ recorridos;usuarios; genero; estaciones; barrio; comuna
 
@@ -380,11 +380,11 @@ Con ese fin se generaron dos triggers:
 
 Estos triggers hacen que se registren en la tabla _auditoria_usuarios_ el id_usuario, id_genero, edad del usuario, fecha y hora de modificacion (del alta o baja), el usuario (data entry) que realizó el alta/baja y un comentario en el que se aclara si se realizó un alta o una baja.
 
-Algo similar sucede con las estaciones, el GCBA preveé la incorporación de nuevas estaciones y la baja de las estaciones que no registren una cantidad significativa de recorridos. Entonces, se agregó al esquema los siguientes triggers...
+Algo similar sucede con las estaciones, el GCBA preveé la incorporación de nuevas estaciones y la baja de las estaciones que no registren una cantidad significativa de recorridos. Entonces, se agregaron al esquema los siguientes triggers...
 
   **-tr_auditoria_estaciones** 
   
   **-tr_auditoria_estaciones_eliminadas**
 
-... que registran en la tabla _auditoria_estaciones_ el id_estacion, nombre, dirección, fecha y hora de alta/baja, el data entry qye realizó la acción y el comentario que especifica si se trata de un alta o una baja.
+... que registran en la tabla _auditoria_estaciones_ el id_estacion, nombre, dirección, fecha y hora de alta/baja, el data entry que realizó la acción y el comentario que especifica si se trata de un alta o una baja.
 
