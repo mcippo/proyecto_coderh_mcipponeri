@@ -28,5 +28,10 @@ En el repositorio se encontrará la siguiente información:
 
 - [Los cinco primeros queries para generar tablas, relaciones, vistas, funciones, SP y triggers](queries/) 📝
 
+**TERCERA ENTREGA (FINAL)**
 
+- [Archivo PDF con la ENTREGA FINAL del trabajo ](3ra_entrega_final/) 📃
 
+- [Las dos bases de datos comprimidas para ser utilizadas luego de correr el query 1 y antes de correr los queries 2 al 5](bases/) 🗃️️
+
+- [Los cinco primeros queries para generar tablas, relaciones, vistas, funciones, SP y triggers (generados para las entregas 1 y 2); y un sexto query generado para esta entrega final con ejemplos de utilización de transacciones - COMMIT, ROLLBACK, SAVEPOINT-](queries/) 📝
