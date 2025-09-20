@@ -420,5 +420,35 @@ Con el fin de garantizar la seguridad del esquema trabajado, se realizó un un _
 
 Para eso, se realizaron los siguientes pasos: en _Administration_ se seleccionó _data export_ el esquema _ecobici_ y se optó por generar un _self contained file_ (un único archivo sql con toda la información seleccionada). El back up de nombre **Dump_ecobici_20250920** fue guardado en la carpeta _back_up_ del proyecto.
 
+## Informes gráficos
 
+Como punto final del trabajo, se presentan algunos gráficos con resultados que surgieron de las vistas generadas. 
+
+Las tablas fueron exportadas desde **MySQL Workbench** en formato .csv.
+
+En el primer gráfico se puede apreciar como en la muestra de usuarios seleccionados, predominan los de género másculino. Otro punto a destacar es que el 7,8% de la muestra completó la categoría "otros" a la hora de registrarse.
+
+ 
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+
+knitr::include_graphics("graf1.png")
+
+```
+
+Tal como se puede apreciar a continuación, 4 de cada 10 usuarios tienen entre 26 y 35 años, seguidos por los que tienen entre 36 y 50 años. 
+
+ 
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+
+knitr::include_graphics("graf2.png")
+
+```
+
+En el top 20 de estaciones, se destacan "Parque Patricios II", "Parque Las Heras", "Constitución" y "Plaza Italia" como las que mayor cantidad de recorridos concentraron en el año.
+ 
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+
+knitr::include_graphics("graf3.png")
+
+```
 
