@@ -1,7 +1,10 @@
 
 **/*.xlsx
-**/*.csv
+#**/*.csv
 **/*.sav
 **/*.rds
 **/*.geojson
 .Rproj.user
+insumos/*.csv
+insumos/bases_finales/*.csv
+procesamientos_r/*.csv
