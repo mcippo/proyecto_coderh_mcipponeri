@@ -388,6 +388,8 @@ Algo similar sucede con las estaciones, el GCBA preveé la incorporación de nue
 
 ... que registran en la tabla _auditoria_estaciones_ el id_estacion, nombre, dirección, fecha y hora de alta/baja, el data entry que realizó la acción y el comentario que especifica si se trata de un alta o una baja.
 
+\pagebreak
+
 # TERCERA PARTE
 
 ## Transacciones
