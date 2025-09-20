@@ -3,7 +3,7 @@ title: "**SISTEMA DE ECOBICI EN CABA: Funcionamiento y Mejoras Potenciales**"
 author: |
   | Docentes: Leonardo Lo Presti, Jennifer Goldfeld 
   | Alumno: Mariano Cipponeri
-date: '08-09-2025'
+date: '21-09-2025'
 output:
   pdf_document:
     toc: true
@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 \pagebreak
 
-# PRIMERA ENTREGA
+# PRIMERA PARTE DEL TRABAJO
 
 ## Introducción
 
@@ -227,7 +227,7 @@ knitr::include_graphics("der.png")
 
 ```
  
-# SEGUNDA ENTREGA
+# SEGUNDA PARTE
 
 En esta segunda entrega se presentarán las primeras **Vistas**, **Funciones**, **Store Procedures** y **Triggers**; los cuales fueron elaborados con el fin de satisfacer los objetivos propuestos en la primera entrega. Tal como se aclaró en la misma, los resultados son preliminares y **se espera expandir la cantidad de productos entregados en la entrega final.**
 
@@ -387,4 +387,36 @@ Algo similar sucede con las estaciones, el GCBA preveé la incorporación de nue
   **-tr_auditoria_estaciones_eliminadas**
 
 ... que registran en la tabla _auditoria_estaciones_ el id_estacion, nombre, dirección, fecha y hora de alta/baja, el data entry que realizó la acción y el comentario que especifica si se trata de un alta o una baja.
+
+# TERCERA PARTE
+
+## Transacciones
+
+Se incluyeron tres ejemplos para poner en práctica el uso de transacciones en el esquema realizado.
+
+**1) Commit:**
+
+En la tabla _usuarios_ se insertó un nuevo usuario utilizando el comando _commit_ (con la previa desactualización del _autocommit_)
+
+Se agregó un ejemplo similar con la actualización de la edad del nuevo usuario generado (utilizando el comando -update_).
+
+**2) Rollback:**
+
+En la tabla _estaciones_ se inició una transacción para insertar una nueva estación. Luego se realizó otra transacción en la que nueva estación se eliminaba, pero fue restituída a través de un _rollback_.
+
+**3) Savepoint:**
+
+En la tabla de _recorridos_ se modificaron las calificaciones otorgadas a dos recorridos realizados. 
+
+Se aplicó un savepoint al modificar la primera calificación y luego de modificar la segunda calificación se aplició el comando _rollback to_ el savepoint realizado. De esta manera, la calificación del primer caso fue modificada y la del segundo mantuvo el valor original.
+
+Luego de realizar los tres ejercicios, se seteo el autocommit para que quede activado.
+
+## Back Up del esquema
+
+Con el fin de garantizar la seguridad del esquema trabajado, se realizó un un _back up_ de los archivos involucrados.
+
+Para eso, se realizaron los siguientes pasos: en _Administration_ se seleccionó _data export_ el esquema _ecobici_ y se optó por generar un _self contained file_ (un único archivo sql con toda la información seleccionada). El back up de nombre **Dump_ecobici_20250920** fue guardado en la carpeta _back_up_ del proyecto.
+
+
 
