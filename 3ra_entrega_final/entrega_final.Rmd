@@ -424,7 +424,7 @@ Para eso, se realizaron los siguientes pasos: en _Administration_ se seleccionó
 
 Como punto final del trabajo, se presentan algunos gráficos con resultados que surgieron de las vistas generadas. 
 
-Las tablas fueron exportadas desde **MySQL Workbench** en formato .csv.
+Las tablas fueron exportadas desde **MySQL Workbench** en formato .csv, mientras que los gráficos se levantaron en R y fueron elaborados utilizando el paquete _ggplot2_ (el script "3_generacion_graficos" con las sentencias para realizar los gráficos se encuentra en la carpeta _procesamientos_r_).
 
 En el primer gráfico se puede apreciar como en la muestra de usuarios seleccionados, predominan los de género másculino. Otro punto a destacar es que el 7,8% de la muestra completó la categoría "otros" a la hora de registrarse.
 
@@ -452,7 +452,7 @@ En el top 20 de estaciones, se destacan "Parque Patricios II", "Parque Las Heras
 knitr::include_graphics("graf3.png")
 
 ```
-
+La estaciones Venancio Flores, Soldados de La Frontera, Nocasio Oroño, Huaura, Coghlan, Balbín 2 y Av. Triunvirato **se destacaron por tener calificaciones perfectas.**
 
  
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
@@ -460,12 +460,21 @@ knitr::include_graphics("graf3.png")
 knitr::include_graphics("graf4.png")
 
 ```
-
+Al analizar los ingresos generados por estación, Parque Patricios, Constitución y Monroe fueron las que mayor aporte registraron.
 
  
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
 
 knitr::include_graphics("graf5.png")
+
+```
+
+Finalmente, no se observan diferencias a la hora de comparar las calificaciones otorgadas a los recorridos según modelo de bicicleta.
+
+ 
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+
+knitr::include_graphics("graf6.png")
 
 ```
 

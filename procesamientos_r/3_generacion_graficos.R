@@ -210,7 +210,6 @@ ggsave("3ra_entrega_final/graf5.png",width = 10, height = 6)
 
 insumo <- read.csv("resultados/calif_modelo.csv")
 
-
 ggplot(insumo,aes(x=modelo,y=calificacion_promedio)) +
   geom_col(fill = "#2c7fb8") +
   geom_label(aes(label =round(calificacion_promedio,1)),
@@ -230,19 +229,15 @@ ggplot(insumo,aes(x=modelo,y=calificacion_promedio)) +
     strip.text = element_text(face = "bold", color = "white", hjust = 0),
     strip.background = element_rect(fill = "white", linetype = "solid",
                                     color = "grey", linewidth = 1)
-  ) +
+  )+
   scale_y_continuous(expand = expansion(mult = c(0, 0.2)))+
-  labs(x = "",
-       y = "",
-       title = "Calificación")
-
-
-
-
-labs(
-  title = "Principales 20 estaciones según cantidad de recorridos",
+  labs(
+  title = "Calificación otorgada según modelo de bicicleta",
   subtitle = "ECOBICI; año 2024",
   x = "",
   y = "",
   caption = "Fuente: Elaboración propia en base a Datos Abiertos GCBA"
-)+
+)
+  
+ggsave("3ra_entrega_final/graf6.png",width = 10, height = 6)
+
