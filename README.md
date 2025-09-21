@@ -28,7 +28,7 @@ En el repositorio se encontrará la siguiente información:
 
 **TERCERA ENTREGA (FINAL)**
 
-- [Archivo PDF con la ENTREGA FINAL del trabajo ](3ra_entrega_final/) 📃
+- [Archivo PDF con la ENTREGA FINAL del trabajo, de nombre **entrega_final.pdf** ](3ra_entrega_final/) 📃
 
 - [Las dos bases de datos comprimidas para ser utilizadas luego de correr el query 1 y antes de correr los queries 2 al 6](bases/) 🗃️️
 
@@ -36,6 +36,6 @@ En el repositorio se encontrará la siguiente información:
 
 - [Un back up con todos los archivos del esqueba ecobici importada desde un _self-contained-file_](back_up/) 🔄
 
-- [Una carpeta que contiene tablas en formato .csv productos de la utilización de algunas de las vistas generadas. Estás tablas fueron el insumo utilizado para generar los gráficos finales](resultados/) 🧮
+- [Una carpeta que contiene tablas en formato .csv producto de la utilización de algunas de las vistas generadas. Estás tablas fueron el insumo utilizado para generar los gráficos finales](resultados/) 🧮
 
 - [Una carpeta con los script utilizados en R para procesar las bases originales de Ecobici del GCBA y generar las bases de muestra utilizadas en el proyecto y un script para la elaboración de gráficos](procesamientos_r/) 📊
