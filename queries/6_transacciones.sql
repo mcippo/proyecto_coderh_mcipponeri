@@ -38,6 +38,13 @@ WHERE id_usuario = 2000006;
 
 COMMIT;
 
+-- La edad del usuario tiene que ser 32 años:
+
+SELECT id_usuario, id_genero, edad_usuario, fecha_alta, hora_alta
+FROM usuarios
+WHERE id_usuario = 2000006;
+
+
 -- 2) USO DE ROLLBACK
 
 -- Se carga una estación ficticia para este ejemplo
@@ -50,15 +57,25 @@ INSERT INTO estaciones (id_estacion, nombre, direccion,
 
 COMMIT;
 
--- Un data entry pretende actualizar las bases de datos y por error borra la estación anterior, el rollback anula el delete
+-- Tiene que figurar la estación creada:
 
-select * FROM estaciones;
+select * FROM estaciones
+WHERE id_estacion=600;
+
+
+-- Un data entry pretende actualizar las bases de datos y por error borra la estación anterior, el rollback anula el delete
 
 START TRANSACTION;
 
 DELETE FROM estaciones WHERE id_estacion=600;
 
 rollback;
+
+-- Tiene que figurar la estación creada (gracias al rollback):
+
+select * FROM estaciones
+WHERE id_estacion=600;
+
 
 -- Hecha la prueba del rollback, ahora sí, se elimina la estación generada para el ejemplo:
 
