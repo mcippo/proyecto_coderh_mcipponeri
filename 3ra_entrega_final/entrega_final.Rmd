@@ -446,9 +446,27 @@ knitr::include_graphics("graf2.png")
 
 En el top 20 de estaciones, se destacan "Parque Patricios II", "Parque Las Heras", "Constitución" y "Plaza Italia" como las que mayor cantidad de recorridos concentraron en el año.
  
+ 
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
 
 knitr::include_graphics("graf3.png")
 
 ```
+
+
+ 
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+
+knitr::include_graphics("graf4.png")
+
+```
+
+
+ 
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+
+knitr::include_graphics("graf5.png")
+
+```
+
 

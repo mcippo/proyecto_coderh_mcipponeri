@@ -102,7 +102,7 @@ ggplot(insumo, aes(x = reorder(nombre_estacion, cantidad_recorridos),
     y = "",
     caption = "Fuente: Elaboración propia en base a Datos Abiertos GCBA"
   ) +
-  coord_flip() +  # Hacemos el gráfico horizontal
+  coord_flip() +  
   theme(
     panel.grid = element_blank(),
     legend.position = "none",
@@ -120,3 +120,129 @@ ggplot(insumo, aes(x = reorder(nombre_estacion, cantidad_recorridos),
   scale_y_continuous(expand = expansion(mult = c(0, 0.05)))
 
 ggsave("3ra_entrega_final/graf3.png",width = 10, height = 6)
+
+
+# Top 20 de calificación por estacion
+
+insumo <- read.csv("resultados/calif_estacion.csv") %>% 
+  slice(1:20) %>% 
+  mutate(nombre_estacion=str_to_title(nombre_estacion))
+
+
+
+ggplot(insumo, aes(x = reorder(nombre_estacion, calificacion_promedio),
+                   y = calificacion_promedio)) +
+  geom_col(fill = "#c51b8a") +
+  geom_label(aes(label = round(calificacion_promedio,1)),
+             vjust = 0.5, hjust = -0.1, fill = "white") +
+  labs(
+    title = "Principales 20 estaciones, según calificación otorgada",
+    subtitle = "ECOBICI; año 2024",
+    x = "",
+    y = "",
+    caption = "Fuente: Elaboración propia en base a Datos Abiertos GCBA"
+  ) +
+  coord_flip() +  
+  theme(
+    panel.grid = element_blank(),
+    legend.position = "none",
+    text = element_text(family = "Encode Sans Normal", face = "bold", size = 12),
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "#636363"),
+    plot.caption = element_text(face = "bold", hjust = 0),
+    axis.text.y = element_text(size = 10, face = "bold"),
+    axis.ticks = element_blank(),
+    axis.text.x = element_blank(),
+    strip.text = element_text(face = "bold", color = "white", hjust = 0),
+    strip.background = element_rect(fill = "white", linetype = "solid",
+                                    color = "grey", linewidth = 1)
+  ) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.05)))
+
+
+ggsave("3ra_entrega_final/graf4.png",width = 10, height = 6)
+
+
+
+# Top 20 de ingresos generados por estacion
+
+insumo <- read.csv("resultados/ingresos_por_estacion.csv") %>% 
+  arrange(desc(gasto_total)) %>% 
+  slice(1:20) %>% 
+  mutate(nombre_estacion=str_to_title(nombre_estacion))
+
+
+ggplot(insumo, aes(x = reorder(nombre_estacion, gasto_total),
+                   y = gasto_total)) +
+  geom_col(fill = "#2c7fb8") +
+  geom_label(aes(label =gasto_total),
+             vjust = 0.5, hjust = -0.1, fill = "white") +
+  labs(
+    title = "Principales 20 estaciones, según ingresos generados",
+    subtitle = "ECOBICI; año 2024",
+    x = "",
+    y = "",
+    caption = "Fuente: Elaboración propia en base a Datos Abiertos GCBA"
+  ) +
+  coord_flip() +  
+  theme(
+    panel.grid = element_blank(),
+    legend.position = "none",
+    text = element_text(family = "Encode Sans Normal", face = "bold", size = 12),
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "#636363"),
+    plot.caption = element_text(face = "bold", hjust = 0),
+    axis.text.y = element_text(size = 10, face = "bold"),
+    axis.ticks = element_blank(),
+    axis.text.x = element_blank(),
+    strip.text = element_text(face = "bold", color = "white", hjust = 0),
+    strip.background = element_rect(fill = "white", linetype = "solid",
+                                    color = "grey", linewidth = 1)
+  ) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15)))
+
+
+ggsave("3ra_entrega_final/graf5.png",width = 10, height = 6)
+
+
+
+# Top 20 de ingresos generados por estacion
+
+insumo <- read.csv("resultados/calif_modelo.csv")
+
+
+ggplot(insumo,aes(x=modelo,y=calificacion_promedio)) +
+  geom_col(fill = "#2c7fb8") +
+  geom_label(aes(label =round(calificacion_promedio,1)),
+             vjust = 0.5, 
+             hjust = 0.5,
+             fill = "white") +
+  theme(
+    panel.grid = element_blank(),
+    legend.position = "none",
+    text = element_text(family = "Encode Sans Normal", face = "bold", size = 9),
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "#636363"),
+    plot.caption = element_text(face = "bold", hjust = 0),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.x = element_text(size = 10, face = "bold"),
+    strip.text = element_text(face = "bold", color = "white", hjust = 0),
+    strip.background = element_rect(fill = "white", linetype = "solid",
+                                    color = "grey", linewidth = 1)
+  ) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.2)))+
+  labs(x = "",
+       y = "",
+       title = "Calificación")
+
+
+
+
+labs(
+  title = "Principales 20 estaciones según cantidad de recorridos",
+  subtitle = "ECOBICI; año 2024",
+  x = "",
+  y = "",
+  caption = "Fuente: Elaboración propia en base a Datos Abiertos GCBA"
+)+
