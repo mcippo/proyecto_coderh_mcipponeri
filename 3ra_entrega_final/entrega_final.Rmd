@@ -425,7 +425,7 @@ Luego de realizar los tres ejercicios, **se seteo el autocommit para que quede a
 
 Con el fin de garantizar la seguridad del esquema trabajado, se realizó un un _back up_ de los archivos involucrados.
 
-Para eso, se realizaron los siguientes pasos: en _Administration_ se seleccionó _data export_ y, luego, el esquema _ecobici_ y se optó por generar un _self contained file_ (un único archivo sql con toda la información seleccionada). El back up de nombre **Dump_ecobici_20250920** fue guardado en la carpeta _back_up_ del proyecto.
+Para eso, se realizaron los siguientes pasos: en _Administration_ se seleccionó _data export_ y, luego, el esquema _ecobici_ y se optó por generar un _self contained file_ (un único archivo sql con toda la información seleccionada). El back up de nombre **Dump_ecobici_20250921** fue guardado en la carpeta _back_up_ del proyecto.
 
 ## Informes gráficos
 
