@@ -117,7 +117,7 @@ ggplot(insumo, aes(x = reorder(nombre_estacion, cantidad_recorridos),
     strip.background = element_rect(fill = "white", linetype = "solid",
                                     color = "grey", linewidth = 1)
   ) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.05)))
+  scale_y_continuous(expand = expansion(mult = c(0, 0.2)))
 
 ggsave("3ra_entrega_final/graf3.png",width = 10, height = 6)
 
@@ -175,10 +175,10 @@ insumo <- read.csv("resultados/ingresos_por_estacion.csv") %>%
 ggplot(insumo, aes(x = reorder(nombre_estacion, gasto_total),
                    y = gasto_total)) +
   geom_col(fill = "#2c7fb8") +
-  geom_label(aes(label =gasto_total),
+  geom_label(aes(label =number(gasto_total, big.mark = ".", decimal.mark = ",")),
              vjust = 0.5, hjust = -0.1, fill = "white") +
   labs(
-    title = "Principales 20 estaciones, según ingresos generados",
+    title = "Principales 20 estaciones, según ingresos generados (en pesos)",
     subtitle = "ECOBICI; año 2024",
     x = "",
     y = "",

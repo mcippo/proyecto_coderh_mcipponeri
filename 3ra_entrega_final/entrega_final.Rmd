@@ -66,7 +66,15 @@ A través del uso del herramental ofrecido por SQL en las bases de datos mencion
  
  * Estimar cuál habría sido el volumen de ingresos generados por la ECOBICI en caso de haber sido un servicio tarifado para toda la población en 2024.
 
-\pagebreak
+## Herramientas a utilizar en el proyecto
+
+Con el fin de cumplir con los objetivos propuestos, se utilizarán las siguientes herramientas:
+
+- Las bases de _Ecobici_ disponibles en datos abiertos del GCBA serán descargadas y modeladas vía _RStudio_. Como resultado, se generarán dos bases de muestra. También se utilizará _RStudio_ para elaborar los gráficos del informe final. Los paquetes utilizados serán los siguientes:
+
+  - dplyr, readr, utils, tidyverse, sf, readxls, openxlsx, janitor, scale y ggplot2.
+
+- Para la elaboración del esquema _ecobici_, con sus tablas y relaciones, se utilizará MySQL Workbench, que también se aplicará para cargar los datos de las bases de muestra generadas con R, realizar funciones, triggers, store procedures, transacciones, generar un back up de todos los archivos generados, y exportar los resultados provenientes de las vistas en formato .csv (que serán de insumo para la elaboración de gráficos en R).
 
 ## Primeras tablas
 
@@ -96,7 +104,6 @@ Esta tabla se utilizará para aportar información del usuario en la tabla de **
 | edad  | edad_usuario | INT  | -      |
 | fecha de inscripción en ECOBICI  | fecha_alta | DATE | -      |
 | hora de la fecha del alta  | hora_alta | TIME | -      |
-
 
  **COMUNA:** 
 
@@ -229,7 +236,7 @@ knitr::include_graphics("der.png")
  
 # SEGUNDA PARTE
 
-En esta segunda entrega se presentarán las primeras **Vistas**, **Funciones**, **Store Procedures** y **Triggers**; los cuales fueron elaborados con el fin de satisfacer los objetivos propuestos en la primera entrega. Tal como se aclaró en la misma, los resultados son preliminares y **se espera expandir la cantidad de productos entregados en la entrega final.**
+En esta segunda entrega se presentarán las primeras **Vistas**, **Funciones**, **Store Procedures** y **Triggers**; los cuales fueron elaborados con el fin de satisfacer los objetivos propuestos en la primera entrega. 
 
 ## Las bases de datos utilizadas
 
@@ -394,7 +401,7 @@ Algo similar sucede con las estaciones, el GCBA preveé la incorporación de nue
 
 ## Transacciones
 
-Se incluyeron tres ejemplos para poner en práctica el uso de transacciones en el esquema realizado.
+Se incluyeron tres ejemplos para poner en práctica el uso de transacciones en el esquema realizado (las mismas figuran en el query _6_transacciones_ de la carpeta queries del proyecto).
 
 **1) Commit:**
 
@@ -412,13 +419,13 @@ En la tabla de _recorridos_ se modificaron las calificaciones otorgadas a dos re
 
 Se aplicó un savepoint al modificar la primera calificación y luego de modificar la segunda calificación se aplició el comando _rollback to_ el savepoint realizado. De esta manera, la calificación del primer caso fue modificada y la del segundo mantuvo el valor original.
 
-Luego de realizar los tres ejercicios, se seteo el autocommit para que quede activado.
+Luego de realizar los tres ejercicios, **se seteo el autocommit para que quede activado.**
 
 ## Back Up del esquema
 
 Con el fin de garantizar la seguridad del esquema trabajado, se realizó un un _back up_ de los archivos involucrados.
 
-Para eso, se realizaron los siguientes pasos: en _Administration_ se seleccionó _data export_ el esquema _ecobici_ y se optó por generar un _self contained file_ (un único archivo sql con toda la información seleccionada). El back up de nombre **Dump_ecobici_20250920** fue guardado en la carpeta _back_up_ del proyecto.
+Para eso, se realizaron los siguientes pasos: en _Administration_ se seleccionó _data export_ y, luego, el esquema _ecobici_ y se optó por generar un _self contained file_ (un único archivo sql con toda la información seleccionada). El back up de nombre **Dump_ecobici_20250920** fue guardado en la carpeta _back_up_ del proyecto.
 
 ## Informes gráficos
 
@@ -426,7 +433,7 @@ Como punto final del trabajo, se presentan algunos gráficos con resultados que 
 
 Las tablas fueron exportadas desde **MySQL Workbench** en formato .csv, mientras que los gráficos se levantaron en R y fueron elaborados utilizando el paquete _ggplot2_ (el script "3_generacion_graficos" con las sentencias para realizar los gráficos se encuentra en la carpeta _procesamientos_r_).
 
-En el primer gráfico se puede apreciar como en la muestra de usuarios seleccionados, predominan los de género másculino. Otro punto a destacar es que el 7,8% de la muestra completó la categoría "otros" a la hora de registrarse.
+En el primer gráfico se puede apreciar cómo en la muestra de usuarios seleccionados, predominan los de género másculino. Otro punto a destacar es que el 7,8% de la muestra completó la categoría "otros" a la hora de registrarse.
 
  
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
@@ -435,7 +442,7 @@ knitr::include_graphics("graf1.png")
 
 ```
 
-Tal como se puede apreciar a continuación, 4 de cada 10 usuarios tienen entre 26 y 35 años, seguidos por los que tienen entre 36 y 50 años. 
+Tal como se puede apreciar a continuación, 4 de cada 10 usuarios tienen entre 26 y 35 años, seguidos en peso por los que tienen entre 36 y 50 años. 
 
  
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
@@ -443,6 +450,8 @@ Tal como se puede apreciar a continuación, 4 de cada 10 usuarios tienen entre 2
 knitr::include_graphics("graf2.png")
 
 ```
+
+\pagebreak
 
 En el top 20 de estaciones, se destacan "Parque Patricios II", "Parque Las Heras", "Constitución" y "Plaza Italia" como las que mayor cantidad de recorridos concentraron en el año.
  
@@ -452,7 +461,7 @@ En el top 20 de estaciones, se destacan "Parque Patricios II", "Parque Las Heras
 knitr::include_graphics("graf3.png")
 
 ```
-La estaciones Venancio Flores, Soldados de La Frontera, Nocasio Oroño, Huaura, Coghlan, Balbín 2 y Av. Triunvirato **se destacaron por tener calificaciones perfectas.**
+La estaciones Venancio Flores, Soldado de La Frontera, Nicasio Oroño, Huaura, Coghlan, Balbín 2 y Av. Triunvirato **se destacaron por tener calificaciones perfectas.**
 
  
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
@@ -460,6 +469,8 @@ La estaciones Venancio Flores, Soldados de La Frontera, Nocasio Oroño, Huaura, 
 knitr::include_graphics("graf4.png")
 
 ```
+\pagebreak
+
 Al analizar los ingresos generados por estación, Parque Patricios, Constitución y Monroe fueron las que mayor aporte registraron.
 
  
